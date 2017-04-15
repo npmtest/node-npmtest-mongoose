@@ -1,4 +1,6 @@
-<html lang="en"><head>
+<!doctype html>
+<html lang="en">
+<head>
     <title>Code coverage report for node-npmtest-mongoose/mongoose/lib/query.js</title>
     <meta charset="utf-8">
     <style>
@@ -208,11 +210,11 @@
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
-    <div class="path"><a href="../../../index.html">All files</a> » <a href="index.html">node-npmtest-mongoose/mongoose/lib/</a> » query.js</div>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">node-npmtest-mongoose/mongoose/lib/</a> &#187; query.js</div>
 </div>
 <div class="body">
 <pre><table class="coverage">
-<tbody><tr><td class="line-count">1
+<tr><td class="line-count">1
 2
 3
 4
@@ -7268,66 +7270,66 @@ var utils = require('./utils');
  * @api private
  */
 &nbsp;
-<span class="fstat-no" title="function not covered">function Query(conditions, options, model, collection) {</span>
+<span class="fstat-no" title="function not covered" >function Query(conditions, options, model, collection) {</span>
   // this stuff is for dealing with custom queries created by #toConstructor
-<span class="cstat-no" title="statement not covered">  if (!this._mongooseOptions) {</span>
-<span class="cstat-no" title="statement not covered">    this._mongooseOptions = {};</span>
+<span class="cstat-no" title="statement not covered" >  if (!this._mongooseOptions) {</span>
+<span class="cstat-no" title="statement not covered" >    this._mongooseOptions = {};</span>
   }
 &nbsp;
   // this is the case where we have a CustomQuery, we need to check if we got
   // options passed in, and if we did, merge them in
-<span class="cstat-no" title="statement not covered">  if (options) {</span>
-<span class="cstat-no" title="statement not covered">    var keys = Object.keys(options);</span>
-<span class="cstat-no" title="statement not covered">    for (var i = 0; i &lt; keys.length; ++i) {</span>
-<span class="cstat-no" title="statement not covered">      var k = keys[i];</span>
-<span class="cstat-no" title="statement not covered">      this._mongooseOptions[k] = options[k];</span>
+<span class="cstat-no" title="statement not covered" >  if (options) {</span>
+<span class="cstat-no" title="statement not covered" >    var keys = Object.keys(options);</span>
+<span class="cstat-no" title="statement not covered" >    for (var i = 0; i &lt; keys.length; ++i) {</span>
+<span class="cstat-no" title="statement not covered" >      var k = keys[i];</span>
+<span class="cstat-no" title="statement not covered" >      this._mongooseOptions[k] = options[k];</span>
     }
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (collection) {</span>
-<span class="cstat-no" title="statement not covered">    this.mongooseCollection = collection;</span>
+<span class="cstat-no" title="statement not covered" >  if (collection) {</span>
+<span class="cstat-no" title="statement not covered" >    this.mongooseCollection = collection;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (model) {</span>
-<span class="cstat-no" title="statement not covered">    this.model = model;</span>
-<span class="cstat-no" title="statement not covered">    this.schema = model.schema;</span>
+<span class="cstat-no" title="statement not covered" >  if (model) {</span>
+<span class="cstat-no" title="statement not covered" >    this.model = model;</span>
+<span class="cstat-no" title="statement not covered" >    this.schema = model.schema;</span>
   }
 &nbsp;
   // this is needed because map reduce returns a model that can be queried, but
   // all of the queries on said model should be lean
-<span class="cstat-no" title="statement not covered">  if (this.model &amp;&amp; this.model._mapreduce) {</span>
-<span class="cstat-no" title="statement not covered">    this.lean();</span>
+<span class="cstat-no" title="statement not covered" >  if (this.model &amp;&amp; this.model._mapreduce) {</span>
+<span class="cstat-no" title="statement not covered" >    this.lean();</span>
   }
 &nbsp;
   // inherit mquery
-<span class="cstat-no" title="statement not covered">  mquery.call(this, this.mongooseCollection, options);</span>
+<span class="cstat-no" title="statement not covered" >  mquery.call(this, this.mongooseCollection, options);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (conditions) {</span>
-<span class="cstat-no" title="statement not covered">    this.find(conditions);</span>
+<span class="cstat-no" title="statement not covered" >  if (conditions) {</span>
+<span class="cstat-no" title="statement not covered" >    this.find(conditions);</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (this.schema) {</span>
-<span class="cstat-no" title="statement not covered">    var kareemOptions = {</span>
+<span class="cstat-no" title="statement not covered" >  if (this.schema) {</span>
+<span class="cstat-no" title="statement not covered" >    var kareemOptions = {</span>
       useErrorHandlers: true,
       numCallbackParams: 1
     };
-<span class="cstat-no" title="statement not covered">    this._count = this.model.hooks.createWrapper('count',</span>
+<span class="cstat-no" title="statement not covered" >    this._count = this.model.hooks.createWrapper('count',</span>
         Query.prototype._count, this, kareemOptions);
-<span class="cstat-no" title="statement not covered">    this._execUpdate = this.model.hooks.createWrapper('update',</span>
+<span class="cstat-no" title="statement not covered" >    this._execUpdate = this.model.hooks.createWrapper('update',</span>
         Query.prototype._execUpdate, this, kareemOptions);
-<span class="cstat-no" title="statement not covered">    this._find = this.model.hooks.createWrapper('find',</span>
+<span class="cstat-no" title="statement not covered" >    this._find = this.model.hooks.createWrapper('find',</span>
         Query.prototype._find, this, kareemOptions);
-<span class="cstat-no" title="statement not covered">    this._findOne = this.model.hooks.createWrapper('findOne',</span>
+<span class="cstat-no" title="statement not covered" >    this._findOne = this.model.hooks.createWrapper('findOne',</span>
         Query.prototype._findOne, this, kareemOptions);
-<span class="cstat-no" title="statement not covered">    this._findOneAndRemove = this.model.hooks.createWrapper('findOneAndRemove',</span>
+<span class="cstat-no" title="statement not covered" >    this._findOneAndRemove = this.model.hooks.createWrapper('findOneAndRemove',</span>
         Query.prototype._findOneAndRemove, this, kareemOptions);
-<span class="cstat-no" title="statement not covered">    this._findOneAndUpdate = this.model.hooks.createWrapper('findOneAndUpdate',</span>
+<span class="cstat-no" title="statement not covered" >    this._findOneAndUpdate = this.model.hooks.createWrapper('findOneAndUpdate',</span>
         Query.prototype._findOneAndUpdate, this, kareemOptions);
-<span class="cstat-no" title="statement not covered">    this._replaceOne = this.model.hooks.createWrapper('replaceOne',</span>
+<span class="cstat-no" title="statement not covered" >    this._replaceOne = this.model.hooks.createWrapper('replaceOne',</span>
         Query.prototype._replaceOne, this, kareemOptions);
-<span class="cstat-no" title="statement not covered">    this._updateMany = this.model.hooks.createWrapper('updateMany',</span>
+<span class="cstat-no" title="statement not covered" >    this._updateMany = this.model.hooks.createWrapper('updateMany',</span>
         Query.prototype._updateMany, this, kareemOptions);
-<span class="cstat-no" title="statement not covered">    this._updateOne = this.model.hooks.createWrapper('updateOne',</span>
+<span class="cstat-no" title="statement not covered" >    this._updateOne = this.model.hooks.createWrapper('updateOne',</span>
         Query.prototype._updateOne, this, kareemOptions);
   }
 }
@@ -7397,37 +7399,37 @@ Query.use$geoWithin = mquery.use$geoWithin;
  * @api public
  */
 &nbsp;
-Query.prototype.toConstructor = <span class="fstat-no" title="function not covered">function toConstructor() {</span>
-<span class="cstat-no" title="statement not covered">  var model = this.model;</span>
-<span class="cstat-no" title="statement not covered">  var coll = this.mongooseCollection;</span>
+Query.prototype.toConstructor = <span class="fstat-no" title="function not covered" >function toConstructor() {</span>
+<span class="cstat-no" title="statement not covered" >  var model = this.model;</span>
+<span class="cstat-no" title="statement not covered" >  var coll = this.mongooseCollection;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  var CustomQuery = <span class="fstat-no" title="function not covered">function(criteria, options) {</span></span>
-<span class="cstat-no" title="statement not covered">    if (!(this instanceof CustomQuery)) {</span>
-<span class="cstat-no" title="statement not covered">      return new CustomQuery(criteria, options);</span>
+<span class="cstat-no" title="statement not covered" >  var CustomQuery = <span class="fstat-no" title="function not covered" >function(criteria, options) {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (!(this instanceof CustomQuery)) {</span>
+<span class="cstat-no" title="statement not covered" >      return new CustomQuery(criteria, options);</span>
     }
-<span class="cstat-no" title="statement not covered">    this._mongooseOptions = utils.clone(p._mongooseOptions);</span>
-<span class="cstat-no" title="statement not covered">    Query.call(this, criteria, options || null, model, coll);</span>
+<span class="cstat-no" title="statement not covered" >    this._mongooseOptions = utils.clone(p._mongooseOptions);</span>
+<span class="cstat-no" title="statement not covered" >    Query.call(this, criteria, options || null, model, coll);</span>
   };
 &nbsp;
-<span class="cstat-no" title="statement not covered">  util.inherits(CustomQuery, Query);</span>
+<span class="cstat-no" title="statement not covered" >  util.inherits(CustomQuery, Query);</span>
 &nbsp;
   // set inherited defaults
-<span class="cstat-no" title="statement not covered">  var p = CustomQuery.prototype;</span>
+<span class="cstat-no" title="statement not covered" >  var p = CustomQuery.prototype;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  p.options = {};</span>
+<span class="cstat-no" title="statement not covered" >  p.options = {};</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  p.setOptions(this.options);</span>
+<span class="cstat-no" title="statement not covered" >  p.setOptions(this.options);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  p.op = this.op;</span>
-<span class="cstat-no" title="statement not covered">  p._conditions = utils.clone(this._conditions, { retainKeyOrder: true });</span>
-<span class="cstat-no" title="statement not covered">  p._fields = utils.clone(this._fields);</span>
-<span class="cstat-no" title="statement not covered">  p._update = utils.clone(this._update);</span>
-<span class="cstat-no" title="statement not covered">  p._path = this._path;</span>
-<span class="cstat-no" title="statement not covered">  p._distinct = this._distinct;</span>
-<span class="cstat-no" title="statement not covered">  p._collection = this._collection;</span>
-<span class="cstat-no" title="statement not covered">  p._mongooseOptions = this._mongooseOptions;</span>
+<span class="cstat-no" title="statement not covered" >  p.op = this.op;</span>
+<span class="cstat-no" title="statement not covered" >  p._conditions = utils.clone(this._conditions, { retainKeyOrder: true });</span>
+<span class="cstat-no" title="statement not covered" >  p._fields = utils.clone(this._fields);</span>
+<span class="cstat-no" title="statement not covered" >  p._update = utils.clone(this._update);</span>
+<span class="cstat-no" title="statement not covered" >  p._path = this._path;</span>
+<span class="cstat-no" title="statement not covered" >  p._distinct = this._distinct;</span>
+<span class="cstat-no" title="statement not covered" >  p._collection = this._collection;</span>
+<span class="cstat-no" title="statement not covered" >  p._mongooseOptions = this._mongooseOptions;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  return CustomQuery;</span>
+<span class="cstat-no" title="statement not covered" >  return CustomQuery;</span>
 };
 &nbsp;
 /**
@@ -8066,10 +8068,10 @@ Query.prototype.toConstructor = <span class="fstat-no" title="function not cover
  * @api public
  */
 &nbsp;
-Query.prototype.read = <span class="fstat-no" title="function not covered">function read(pref, tags) {</span>
+Query.prototype.read = <span class="fstat-no" title="function not covered" >function read(pref, tags) {</span>
   // first cast into a ReadPreference object to support tags
-<span class="cstat-no" title="statement not covered">  var read = readPref.call(readPref, pref, tags);</span>
-<span class="cstat-no" title="statement not covered">  return Query.base.read.call(this, read);</span>
+<span class="cstat-no" title="statement not covered" >  var read = readPref.call(readPref, pref, tags);</span>
+<span class="cstat-no" title="statement not covered" >  return Query.base.read.call(this, read);</span>
 };
 &nbsp;
 /**
@@ -8110,33 +8112,33 @@ Query.prototype.read = <span class="fstat-no" title="function not covered">funct
  * @api public
  */
 &nbsp;
-Query.prototype.setOptions = <span class="fstat-no" title="function not covered">function(options, overwrite) {</span>
+Query.prototype.setOptions = <span class="fstat-no" title="function not covered" >function(options, overwrite) {</span>
   // overwrite is only for internal use
-<span class="cstat-no" title="statement not covered">  if (overwrite) {</span>
+<span class="cstat-no" title="statement not covered" >  if (overwrite) {</span>
     // ensure that _mongooseOptions &amp; options are two different objects
-<span class="cstat-no" title="statement not covered">    this._mongooseOptions = (options &amp;&amp; utils.clone(options)) || {};</span>
-<span class="cstat-no" title="statement not covered">    this.options = options || {};</span>
+<span class="cstat-no" title="statement not covered" >    this._mongooseOptions = (options &amp;&amp; utils.clone(options)) || {};</span>
+<span class="cstat-no" title="statement not covered" >    this.options = options || {};</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if ('populate' in options) {</span>
-<span class="cstat-no" title="statement not covered">      this.populate(this._mongooseOptions);</span>
+<span class="cstat-no" title="statement not covered" >    if ('populate' in options) {</span>
+<span class="cstat-no" title="statement not covered" >      this.populate(this._mongooseOptions);</span>
     }
-<span class="cstat-no" title="statement not covered">    return this;</span>
+<span class="cstat-no" title="statement not covered" >    return this;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (!(options &amp;&amp; options.constructor.name === 'Object')) {</span>
-<span class="cstat-no" title="statement not covered">    return this;</span>
+<span class="cstat-no" title="statement not covered" >  if (!(options &amp;&amp; options.constructor.name === 'Object')) {</span>
+<span class="cstat-no" title="statement not covered" >    return this;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (options &amp;&amp; Array.isArray(options.populate)) {</span>
-<span class="cstat-no" title="statement not covered">    var populate = options.populate;</span>
-<span class="cstat-no" title="statement not covered">    delete options.populate;</span>
-<span class="cstat-no" title="statement not covered">    var _numPopulate = populate.length;</span>
-<span class="cstat-no" title="statement not covered">    for (var i = 0; i &lt; _numPopulate; ++i) {</span>
-<span class="cstat-no" title="statement not covered">      this.populate(populate[i]);</span>
+<span class="cstat-no" title="statement not covered" >  if (options &amp;&amp; Array.isArray(options.populate)) {</span>
+<span class="cstat-no" title="statement not covered" >    var populate = options.populate;</span>
+<span class="cstat-no" title="statement not covered" >    delete options.populate;</span>
+<span class="cstat-no" title="statement not covered" >    var _numPopulate = populate.length;</span>
+<span class="cstat-no" title="statement not covered" >    for (var i = 0; i &lt; _numPopulate; ++i) {</span>
+<span class="cstat-no" title="statement not covered" >      this.populate(populate[i]);</span>
     }
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  return Query.base.setOptions.call(this, options);</span>
+<span class="cstat-no" title="statement not covered" >  return Query.base.setOptions.call(this, options);</span>
 };
 &nbsp;
 /**
@@ -8152,8 +8154,8 @@ Query.prototype.setOptions = <span class="fstat-no" title="function not covered"
  * @api public
  */
 &nbsp;
-Query.prototype.getQuery = <span class="fstat-no" title="function not covered">function() {</span>
-<span class="cstat-no" title="statement not covered">  return this._conditions;</span>
+Query.prototype.getQuery = <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >  return this._conditions;</span>
 };
 &nbsp;
 /**
@@ -8169,8 +8171,8 @@ Query.prototype.getQuery = <span class="fstat-no" title="function not covered">f
  * @api public
  */
 &nbsp;
-Query.prototype.getUpdate = <span class="fstat-no" title="function not covered">function() {</span>
-<span class="cstat-no" title="statement not covered">  return this._update;</span>
+Query.prototype.getUpdate = <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >  return this._update;</span>
 };
 &nbsp;
 /**
@@ -8190,46 +8192,46 @@ Query.prototype.getUpdate = <span class="fstat-no" title="function not covered">
  * @receiver Query
  */
 &nbsp;
-Query.prototype._updateForExec = <span class="fstat-no" title="function not covered">function() {</span>
-<span class="cstat-no" title="statement not covered">  var update = utils.clone(this._update, {</span>
+Query.prototype._updateForExec = <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >  var update = utils.clone(this._update, {</span>
     retainKeyOrder: true,
     transform: false,
     depopulate: true
   });
-<span class="cstat-no" title="statement not covered">  var ops = Object.keys(update);</span>
-<span class="cstat-no" title="statement not covered">  var i = ops.length;</span>
-<span class="cstat-no" title="statement not covered">  var ret = {};</span>
+<span class="cstat-no" title="statement not covered" >  var ops = Object.keys(update);</span>
+<span class="cstat-no" title="statement not covered" >  var i = ops.length;</span>
+<span class="cstat-no" title="statement not covered" >  var ret = {};</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  while (i--) {</span>
-<span class="cstat-no" title="statement not covered">    var op = ops[i];</span>
+<span class="cstat-no" title="statement not covered" >  while (i--) {</span>
+<span class="cstat-no" title="statement not covered" >    var op = ops[i];</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if (this.options.overwrite) {</span>
-<span class="cstat-no" title="statement not covered">      ret[op] = update[op];</span>
-<span class="cstat-no" title="statement not covered">      continue;</span>
+<span class="cstat-no" title="statement not covered" >    if (this.options.overwrite) {</span>
+<span class="cstat-no" title="statement not covered" >      ret[op] = update[op];</span>
+<span class="cstat-no" title="statement not covered" >      continue;</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if ('$' !== op[0]) {</span>
+<span class="cstat-no" title="statement not covered" >    if ('$' !== op[0]) {</span>
       // fix up $set sugar
-<span class="cstat-no" title="statement not covered">      if (!ret.$set) {</span>
-<span class="cstat-no" title="statement not covered">        if (update.$set) {</span>
-<span class="cstat-no" title="statement not covered">          ret.$set = update.$set;</span>
+<span class="cstat-no" title="statement not covered" >      if (!ret.$set) {</span>
+<span class="cstat-no" title="statement not covered" >        if (update.$set) {</span>
+<span class="cstat-no" title="statement not covered" >          ret.$set = update.$set;</span>
         } else {
-<span class="cstat-no" title="statement not covered">          ret.$set = {};</span>
+<span class="cstat-no" title="statement not covered" >          ret.$set = {};</span>
         }
       }
-<span class="cstat-no" title="statement not covered">      ret.$set[op] = update[op];</span>
-<span class="cstat-no" title="statement not covered">      ops.splice(i, 1);</span>
-<span class="cstat-no" title="statement not covered">      if (!~ops.indexOf('$set')) <span class="cstat-no" title="statement not covered">ops.push('$set');</span></span>
-    } else <span class="cstat-no" title="statement not covered">if ('$set' === op) {</span>
-<span class="cstat-no" title="statement not covered">      if (!ret.$set) {</span>
-<span class="cstat-no" title="statement not covered">        ret[op] = update[op];</span>
+<span class="cstat-no" title="statement not covered" >      ret.$set[op] = update[op];</span>
+<span class="cstat-no" title="statement not covered" >      ops.splice(i, 1);</span>
+<span class="cstat-no" title="statement not covered" >      if (!~ops.indexOf('$set')) <span class="cstat-no" title="statement not covered" >ops.push('$set');</span></span>
+    } else <span class="cstat-no" title="statement not covered" >if ('$set' === op) {</span>
+<span class="cstat-no" title="statement not covered" >      if (!ret.$set) {</span>
+<span class="cstat-no" title="statement not covered" >        ret[op] = update[op];</span>
       }
     } else {
-<span class="cstat-no" title="statement not covered">      ret[op] = update[op];</span>
+<span class="cstat-no" title="statement not covered" >      ret[op] = update[op];</span>
     }
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  return ret;</span>
+<span class="cstat-no" title="statement not covered" >  return ret;</span>
 };
 &nbsp;
 /**
@@ -8258,26 +8260,26 @@ Query.prototype._updateForExec = <span class="fstat-no" title="function not cove
  * @api private
  */
 &nbsp;
-Query.prototype._optionsForExec = <span class="fstat-no" title="function not covered">function(model) {</span>
-<span class="cstat-no" title="statement not covered">  var options = Query.base._optionsForExec.call(this);</span>
+Query.prototype._optionsForExec = <span class="fstat-no" title="function not covered" >function(model) {</span>
+<span class="cstat-no" title="statement not covered" >  var options = Query.base._optionsForExec.call(this);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  delete options.populate;</span>
-<span class="cstat-no" title="statement not covered">  delete options.retainKeyOrder;</span>
-<span class="cstat-no" title="statement not covered">  model = model || this.model;</span>
+<span class="cstat-no" title="statement not covered" >  delete options.populate;</span>
+<span class="cstat-no" title="statement not covered" >  delete options.retainKeyOrder;</span>
+<span class="cstat-no" title="statement not covered" >  model = model || this.model;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (!model) {</span>
-<span class="cstat-no" title="statement not covered">    return options;</span>
+<span class="cstat-no" title="statement not covered" >  if (!model) {</span>
+<span class="cstat-no" title="statement not covered" >    return options;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (!('safe' in options) &amp;&amp; model.schema.options.safe) {</span>
-<span class="cstat-no" title="statement not covered">    options.safe = model.schema.options.safe;</span>
+<span class="cstat-no" title="statement not covered" >  if (!('safe' in options) &amp;&amp; model.schema.options.safe) {</span>
+<span class="cstat-no" title="statement not covered" >    options.safe = model.schema.options.safe;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (!('readPreference' in options) &amp;&amp; model.schema.options.read) {</span>
-<span class="cstat-no" title="statement not covered">    options.readPreference = model.schema.options.read;</span>
+<span class="cstat-no" title="statement not covered" >  if (!('readPreference' in options) &amp;&amp; model.schema.options.read) {</span>
+<span class="cstat-no" title="statement not covered" >    options.readPreference = model.schema.options.read;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  return options;</span>
+<span class="cstat-no" title="statement not covered" >  return options;</span>
 };
 &nbsp;
 /**
@@ -8302,9 +8304,9 @@ Query.prototype._optionsForExec = <span class="fstat-no" title="function not cov
  * @api public
  */
 &nbsp;
-Query.prototype.lean = <span class="fstat-no" title="function not covered">function(v) {</span>
-<span class="cstat-no" title="statement not covered">  this._mongooseOptions.lean = arguments.length ? !!v : true;</span>
-<span class="cstat-no" title="statement not covered">  return this;</span>
+Query.prototype.lean = <span class="fstat-no" title="function not covered" >function(v) {</span>
+<span class="cstat-no" title="statement not covered" >  this._mongooseOptions.lean = arguments.length ? !!v : true;</span>
+<span class="cstat-no" title="statement not covered" >  return this;</span>
 };
 &nbsp;
 /**
@@ -8316,11 +8318,11 @@ Query.prototype.lean = <span class="fstat-no" title="function not covered">funct
  * @api public
  */
 &nbsp;
-Query.prototype.mongooseOptions = <span class="fstat-no" title="function not covered">function(v) {</span>
-<span class="cstat-no" title="statement not covered">  if (arguments.length &gt; 0) {</span>
-<span class="cstat-no" title="statement not covered">    this._mongooseOptions = v;</span>
+Query.prototype.mongooseOptions = <span class="fstat-no" title="function not covered" >function(v) {</span>
+<span class="cstat-no" title="statement not covered" >  if (arguments.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >    this._mongooseOptions = v;</span>
   }
-<span class="cstat-no" title="statement not covered">  return this._mongooseOptions;</span>
+<span class="cstat-no" title="statement not covered" >  return this._mongooseOptions;</span>
 };
 &nbsp;
 /**
@@ -8330,45 +8332,45 @@ Query.prototype.mongooseOptions = <span class="fstat-no" title="function not cov
  * @return {Query} this
  * @api private
  */
-Query.prototype._find = <span class="fstat-no" title="function not covered">function(callback) {</span>
-<span class="cstat-no" title="statement not covered">  if (this._castError) {</span>
-<span class="cstat-no" title="statement not covered">    callback(this._castError);</span>
-<span class="cstat-no" title="statement not covered">    return this;</span>
+Query.prototype._find = <span class="fstat-no" title="function not covered" >function(callback) {</span>
+<span class="cstat-no" title="statement not covered" >  if (this._castError) {</span>
+<span class="cstat-no" title="statement not covered" >    callback(this._castError);</span>
+<span class="cstat-no" title="statement not covered" >    return this;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  this._applyPaths();</span>
-<span class="cstat-no" title="statement not covered">  this._fields = this._castFields(this._fields);</span>
+<span class="cstat-no" title="statement not covered" >  this._applyPaths();</span>
+<span class="cstat-no" title="statement not covered" >  this._fields = this._castFields(this._fields);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  var fields = this._fieldsForExec();</span>
-<span class="cstat-no" title="statement not covered">  var options = this._mongooseOptions;</span>
-<span class="cstat-no" title="statement not covered">  var _this = this;</span>
+<span class="cstat-no" title="statement not covered" >  var fields = this._fieldsForExec();</span>
+<span class="cstat-no" title="statement not covered" >  var options = this._mongooseOptions;</span>
+<span class="cstat-no" title="statement not covered" >  var _this = this;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  var cb = <span class="fstat-no" title="function not covered">function(err, docs) {</span></span>
-<span class="cstat-no" title="statement not covered">    if (err) {</span>
-<span class="cstat-no" title="statement not covered">      return callback(err);</span>
+<span class="cstat-no" title="statement not covered" >  var cb = <span class="fstat-no" title="function not covered" >function(err, docs) {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (err) {</span>
+<span class="cstat-no" title="statement not covered" >      return callback(err);</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if (docs.length === 0) {</span>
-<span class="cstat-no" title="statement not covered">      return callback(null, docs);</span>
+<span class="cstat-no" title="statement not covered" >    if (docs.length === 0) {</span>
+<span class="cstat-no" title="statement not covered" >      return callback(null, docs);</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if (!options.populate) {</span>
-<span class="cstat-no" title="statement not covered">      return options.lean === true</span>
+<span class="cstat-no" title="statement not covered" >    if (!options.populate) {</span>
+<span class="cstat-no" title="statement not covered" >      return options.lean === true</span>
           ? callback(null, docs)
           : completeMany(_this.model, docs, fields, null, callback);
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    var pop = helpers.preparePopulationOptionsMQ(_this, options);</span>
-<span class="cstat-no" title="statement not covered">    pop.__noPromise = true;</span>
-<span class="cstat-no" title="statement not covered">    _this.model.populate(docs, pop, <span class="fstat-no" title="function not covered">function(err, docs) {</span></span>
-<span class="cstat-no" title="statement not covered">      if (err) <span class="cstat-no" title="statement not covered">return callback(err);</span></span>
-<span class="cstat-no" title="statement not covered">      return options.lean === true</span>
+<span class="cstat-no" title="statement not covered" >    var pop = helpers.preparePopulationOptionsMQ(_this, options);</span>
+<span class="cstat-no" title="statement not covered" >    pop.__noPromise = true;</span>
+<span class="cstat-no" title="statement not covered" >    _this.model.populate(docs, pop, <span class="fstat-no" title="function not covered" >function(err, docs) {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (err) <span class="cstat-no" title="statement not covered" >return callback(err);</span></span>
+<span class="cstat-no" title="statement not covered" >      return options.lean === true</span>
           ? callback(null, docs)
           : completeMany(_this.model, docs, fields, pop, callback);
     });
   };
 &nbsp;
-<span class="cstat-no" title="statement not covered">  return Query.base.find.call(this, {}, cb);</span>
+<span class="cstat-no" title="statement not covered" >  return Query.base.find.call(this, {}, cb);</span>
 };
 &nbsp;
 /**
@@ -8386,35 +8388,35 @@ Query.prototype._find = <span class="fstat-no" title="function not covered">func
  * @api public
  */
 &nbsp;
-Query.prototype.find = <span class="fstat-no" title="function not covered">function(conditions, callback) {</span>
-<span class="cstat-no" title="statement not covered">  if (typeof conditions === 'function') {</span>
-<span class="cstat-no" title="statement not covered">    callback = conditions;</span>
-<span class="cstat-no" title="statement not covered">    conditions = {};</span>
+Query.prototype.find = <span class="fstat-no" title="function not covered" >function(conditions, callback) {</span>
+<span class="cstat-no" title="statement not covered" >  if (typeof conditions === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >    callback = conditions;</span>
+<span class="cstat-no" title="statement not covered" >    conditions = {};</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  conditions = utils.toObject(conditions);</span>
+<span class="cstat-no" title="statement not covered" >  conditions = utils.toObject(conditions);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (mquery.canMerge(conditions)) {</span>
-<span class="cstat-no" title="statement not covered">    this.merge(conditions);</span>
+<span class="cstat-no" title="statement not covered" >  if (mquery.canMerge(conditions)) {</span>
+<span class="cstat-no" title="statement not covered" >    this.merge(conditions);</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  prepareDiscriminatorCriteria(this);</span>
+<span class="cstat-no" title="statement not covered" >  prepareDiscriminatorCriteria(this);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  try {</span>
-<span class="cstat-no" title="statement not covered">    this.cast(this.model);</span>
-<span class="cstat-no" title="statement not covered">    this._castError = null;</span>
+<span class="cstat-no" title="statement not covered" >  try {</span>
+<span class="cstat-no" title="statement not covered" >    this.cast(this.model);</span>
+<span class="cstat-no" title="statement not covered" >    this._castError = null;</span>
   } catch (err) {
-<span class="cstat-no" title="statement not covered">    this._castError = err;</span>
+<span class="cstat-no" title="statement not covered" >    this._castError = err;</span>
   }
 &nbsp;
   // if we don't have a callback, then just return the query object
-<span class="cstat-no" title="statement not covered">  if (!callback) {</span>
-<span class="cstat-no" title="statement not covered">    return Query.base.find.call(this);</span>
+<span class="cstat-no" title="statement not covered" >  if (!callback) {</span>
+<span class="cstat-no" title="statement not covered" >    return Query.base.find.call(this);</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  this._find(callback);</span>
+<span class="cstat-no" title="statement not covered" >  this._find(callback);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  return this;</span>
+<span class="cstat-no" title="statement not covered" >  return this;</span>
 };
 &nbsp;
 /**
@@ -8426,46 +8428,46 @@ Query.prototype.find = <span class="fstat-no" title="function not covered">funct
  * @return {Query} this
  */
 &nbsp;
-Query.prototype.merge = <span class="fstat-no" title="function not covered">function(source) {</span>
-<span class="cstat-no" title="statement not covered">  if (!source) {</span>
-<span class="cstat-no" title="statement not covered">    return this;</span>
+Query.prototype.merge = <span class="fstat-no" title="function not covered" >function(source) {</span>
+<span class="cstat-no" title="statement not covered" >  if (!source) {</span>
+<span class="cstat-no" title="statement not covered" >    return this;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  var opts = { retainKeyOrder: this.options.retainKeyOrder, overwrite: true };</span>
+<span class="cstat-no" title="statement not covered" >  var opts = { retainKeyOrder: this.options.retainKeyOrder, overwrite: true };</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (source instanceof Query) {</span>
+<span class="cstat-no" title="statement not covered" >  if (source instanceof Query) {</span>
     // if source has a feature, apply it to ourselves
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if (source._conditions) {</span>
-<span class="cstat-no" title="statement not covered">      utils.merge(this._conditions, source._conditions, opts);</span>
+<span class="cstat-no" title="statement not covered" >    if (source._conditions) {</span>
+<span class="cstat-no" title="statement not covered" >      utils.merge(this._conditions, source._conditions, opts);</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if (source._fields) {</span>
-<span class="cstat-no" title="statement not covered">      this._fields || (this._fields = {});</span>
-<span class="cstat-no" title="statement not covered">      utils.merge(this._fields, source._fields, opts);</span>
+<span class="cstat-no" title="statement not covered" >    if (source._fields) {</span>
+<span class="cstat-no" title="statement not covered" >      this._fields || (this._fields = {});</span>
+<span class="cstat-no" title="statement not covered" >      utils.merge(this._fields, source._fields, opts);</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if (source.options) {</span>
-<span class="cstat-no" title="statement not covered">      this.options || (this.options = {});</span>
-<span class="cstat-no" title="statement not covered">      utils.merge(this.options, source.options, opts);</span>
+<span class="cstat-no" title="statement not covered" >    if (source.options) {</span>
+<span class="cstat-no" title="statement not covered" >      this.options || (this.options = {});</span>
+<span class="cstat-no" title="statement not covered" >      utils.merge(this.options, source.options, opts);</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if (source._update) {</span>
-<span class="cstat-no" title="statement not covered">      this._update || (this._update = {});</span>
-<span class="cstat-no" title="statement not covered">      utils.mergeClone(this._update, source._update);</span>
+<span class="cstat-no" title="statement not covered" >    if (source._update) {</span>
+<span class="cstat-no" title="statement not covered" >      this._update || (this._update = {});</span>
+<span class="cstat-no" title="statement not covered" >      utils.mergeClone(this._update, source._update);</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if (source._distinct) {</span>
-<span class="cstat-no" title="statement not covered">      this._distinct = source._distinct;</span>
+<span class="cstat-no" title="statement not covered" >    if (source._distinct) {</span>
+<span class="cstat-no" title="statement not covered" >      this._distinct = source._distinct;</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    return this;</span>
+<span class="cstat-no" title="statement not covered" >    return this;</span>
   }
 &nbsp;
   // plain object
-<span class="cstat-no" title="statement not covered">  utils.merge(this._conditions, source, opts);</span>
+<span class="cstat-no" title="statement not covered" >  utils.merge(this._conditions, source, opts);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  return this;</span>
+<span class="cstat-no" title="statement not covered" >  return this;</span>
 };
 &nbsp;
 /*!
@@ -8479,20 +8481,20 @@ Query.prototype.merge = <span class="fstat-no" title="function not covered">func
  * @param {Function} callback
  */
 &nbsp;
-<span class="fstat-no" title="function not covered">function completeMany(model, docs, fields, pop, callback) {</span>
-<span class="cstat-no" title="statement not covered">  var arr = [];</span>
-<span class="cstat-no" title="statement not covered">  var count = docs.length;</span>
-<span class="cstat-no" title="statement not covered">  var len = count;</span>
-<span class="cstat-no" title="statement not covered">  var opts = pop ?</span>
+<span class="fstat-no" title="function not covered" >function completeMany(model, docs, fields, pop, callback) {</span>
+<span class="cstat-no" title="statement not covered" >  var arr = [];</span>
+<span class="cstat-no" title="statement not covered" >  var count = docs.length;</span>
+<span class="cstat-no" title="statement not covered" >  var len = count;</span>
+<span class="cstat-no" title="statement not covered" >  var opts = pop ?</span>
   {populated: pop}
       : undefined;
-<span class="fstat-no" title="function not covered">  function init(err) {</span>
-<span class="cstat-no" title="statement not covered">    if (err) <span class="cstat-no" title="statement not covered">return callback(err);</span></span>
-<span class="cstat-no" title="statement not covered">    --count || callback(null, arr);</span>
+<span class="fstat-no" title="function not covered" >  function init(err) {</span>
+<span class="cstat-no" title="statement not covered" >    if (err) <span class="cstat-no" title="statement not covered" >return callback(err);</span></span>
+<span class="cstat-no" title="statement not covered" >    --count || callback(null, arr);</span>
   }
-<span class="cstat-no" title="statement not covered">  for (var i = 0; i &lt; len; ++i) {</span>
-<span class="cstat-no" title="statement not covered">    arr[i] = helpers.createModel(model, docs[i], fields);</span>
-<span class="cstat-no" title="statement not covered">    arr[i].init(docs[i], opts, init);</span>
+<span class="cstat-no" title="statement not covered" >  for (var i = 0; i &lt; len; ++i) {</span>
+<span class="cstat-no" title="statement not covered" >    arr[i] = helpers.createModel(model, docs[i], fields);</span>
+<span class="cstat-no" title="statement not covered" >    arr[i].init(docs[i], opts, init);</span>
   }
 }
 &nbsp;
@@ -8505,12 +8507,12 @@ Query.prototype.merge = <span class="fstat-no" title="function not covered">func
  * @api public
  */
 &nbsp;
-Query.prototype.collation = <span class="fstat-no" title="function not covered">function(value) {</span>
-<span class="cstat-no" title="statement not covered">  if (this.options == null) {</span>
-<span class="cstat-no" title="statement not covered">    this.options = {};</span>
+Query.prototype.collation = <span class="fstat-no" title="function not covered" >function(value) {</span>
+<span class="cstat-no" title="statement not covered" >  if (this.options == null) {</span>
+<span class="cstat-no" title="statement not covered" >    this.options = {};</span>
   }
-<span class="cstat-no" title="statement not covered">  this.options.collation = value;</span>
-<span class="cstat-no" title="statement not covered">  return this;</span>
+<span class="cstat-no" title="statement not covered" >  this.options.collation = value;</span>
+<span class="cstat-no" title="statement not covered" >  return this;</span>
 };
 &nbsp;
 /**
@@ -8521,40 +8523,40 @@ Query.prototype.collation = <span class="fstat-no" title="function not covered">
  * @api private
  */
 &nbsp;
-Query.prototype._findOne = <span class="fstat-no" title="function not covered">function(callback) {</span>
-<span class="cstat-no" title="statement not covered">  if (this._castError) {</span>
-<span class="cstat-no" title="statement not covered">    return callback(this._castError);</span>
+Query.prototype._findOne = <span class="fstat-no" title="function not covered" >function(callback) {</span>
+<span class="cstat-no" title="statement not covered" >  if (this._castError) {</span>
+<span class="cstat-no" title="statement not covered" >    return callback(this._castError);</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  this._applyPaths();</span>
-<span class="cstat-no" title="statement not covered">  this._fields = this._castFields(this._fields);</span>
+<span class="cstat-no" title="statement not covered" >  this._applyPaths();</span>
+<span class="cstat-no" title="statement not covered" >  this._fields = this._castFields(this._fields);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  var options = this._mongooseOptions;</span>
-<span class="cstat-no" title="statement not covered">  var projection = this._fieldsForExec();</span>
-<span class="cstat-no" title="statement not covered">  var _this = this;</span>
+<span class="cstat-no" title="statement not covered" >  var options = this._mongooseOptions;</span>
+<span class="cstat-no" title="statement not covered" >  var projection = this._fieldsForExec();</span>
+<span class="cstat-no" title="statement not covered" >  var _this = this;</span>
 &nbsp;
   // don't pass in the conditions because we already merged them in
-<span class="cstat-no" title="statement not covered">  Query.base.findOne.call(_this, {}, <span class="fstat-no" title="function not covered">function(err, doc) {</span></span>
-<span class="cstat-no" title="statement not covered">    if (err) {</span>
-<span class="cstat-no" title="statement not covered">      return callback(err);</span>
+<span class="cstat-no" title="statement not covered" >  Query.base.findOne.call(_this, {}, <span class="fstat-no" title="function not covered" >function(err, doc) {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (err) {</span>
+<span class="cstat-no" title="statement not covered" >      return callback(err);</span>
     }
-<span class="cstat-no" title="statement not covered">    if (!doc) {</span>
-<span class="cstat-no" title="statement not covered">      return callback(null, null);</span>
+<span class="cstat-no" title="statement not covered" >    if (!doc) {</span>
+<span class="cstat-no" title="statement not covered" >      return callback(null, null);</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if (!options.populate) {</span>
-<span class="cstat-no" title="statement not covered">      return options.lean === true</span>
+<span class="cstat-no" title="statement not covered" >    if (!options.populate) {</span>
+<span class="cstat-no" title="statement not covered" >      return options.lean === true</span>
           ? callback(null, doc)
           : completeOne(_this.model, doc, null, {}, projection, null, callback);
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    var pop = helpers.preparePopulationOptionsMQ(_this, options);</span>
-<span class="cstat-no" title="statement not covered">    pop.__noPromise = true;</span>
-<span class="cstat-no" title="statement not covered">    _this.model.populate(doc, pop, <span class="fstat-no" title="function not covered">function(err, doc) {</span></span>
-<span class="cstat-no" title="statement not covered">      if (err) {</span>
-<span class="cstat-no" title="statement not covered">        return callback(err);</span>
+<span class="cstat-no" title="statement not covered" >    var pop = helpers.preparePopulationOptionsMQ(_this, options);</span>
+<span class="cstat-no" title="statement not covered" >    pop.__noPromise = true;</span>
+<span class="cstat-no" title="statement not covered" >    _this.model.populate(doc, pop, <span class="fstat-no" title="function not covered" >function(err, doc) {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (err) {</span>
+<span class="cstat-no" title="statement not covered" >        return callback(err);</span>
       }
-<span class="cstat-no" title="statement not covered">      return options.lean === true</span>
+<span class="cstat-no" title="statement not covered" >      return options.lean === true</span>
           ? callback(null, doc)
           : completeOne(_this.model, doc, null, {}, projection, pop, callback);
     });
@@ -8590,58 +8592,58 @@ Query.prototype._findOne = <span class="fstat-no" title="function not covered">f
  * @api public
  */
 &nbsp;
-Query.prototype.findOne = <span class="fstat-no" title="function not covered">function(conditions, projection, options, callback) {</span>
-<span class="cstat-no" title="statement not covered">  if (typeof conditions === 'function') {</span>
-<span class="cstat-no" title="statement not covered">    callback = conditions;</span>
-<span class="cstat-no" title="statement not covered">    conditions = null;</span>
-<span class="cstat-no" title="statement not covered">    projection = null;</span>
-<span class="cstat-no" title="statement not covered">    options = null;</span>
-  } else <span class="cstat-no" title="statement not covered">if (typeof projection === 'function') {</span>
-<span class="cstat-no" title="statement not covered">    callback = projection;</span>
-<span class="cstat-no" title="statement not covered">    options = null;</span>
-<span class="cstat-no" title="statement not covered">    projection = null;</span>
-  } else <span class="cstat-no" title="statement not covered">if (typeof options === 'function') {</span>
-<span class="cstat-no" title="statement not covered">    callback = options;</span>
-<span class="cstat-no" title="statement not covered">    options = null;</span>
+Query.prototype.findOne = <span class="fstat-no" title="function not covered" >function(conditions, projection, options, callback) {</span>
+<span class="cstat-no" title="statement not covered" >  if (typeof conditions === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >    callback = conditions;</span>
+<span class="cstat-no" title="statement not covered" >    conditions = null;</span>
+<span class="cstat-no" title="statement not covered" >    projection = null;</span>
+<span class="cstat-no" title="statement not covered" >    options = null;</span>
+  } else <span class="cstat-no" title="statement not covered" >if (typeof projection === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >    callback = projection;</span>
+<span class="cstat-no" title="statement not covered" >    options = null;</span>
+<span class="cstat-no" title="statement not covered" >    projection = null;</span>
+  } else <span class="cstat-no" title="statement not covered" >if (typeof options === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >    callback = options;</span>
+<span class="cstat-no" title="statement not covered" >    options = null;</span>
   }
 &nbsp;
   // make sure we don't send in the whole Document to merge()
-<span class="cstat-no" title="statement not covered">  conditions = utils.toObject(conditions);</span>
+<span class="cstat-no" title="statement not covered" >  conditions = utils.toObject(conditions);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  this.op = 'findOne';</span>
+<span class="cstat-no" title="statement not covered" >  this.op = 'findOne';</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (options) {</span>
-<span class="cstat-no" title="statement not covered">    this.setOptions(options);</span>
+<span class="cstat-no" title="statement not covered" >  if (options) {</span>
+<span class="cstat-no" title="statement not covered" >    this.setOptions(options);</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (projection) {</span>
-<span class="cstat-no" title="statement not covered">    this.select(projection);</span>
+<span class="cstat-no" title="statement not covered" >  if (projection) {</span>
+<span class="cstat-no" title="statement not covered" >    this.select(projection);</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (mquery.canMerge(conditions)) {</span>
-<span class="cstat-no" title="statement not covered">    this.merge(conditions);</span>
-  } else <span class="cstat-no" title="statement not covered">if (conditions != null) {</span>
-<span class="cstat-no" title="statement not covered">    throw new Error('Invalid argument to findOne(): ' +</span>
+<span class="cstat-no" title="statement not covered" >  if (mquery.canMerge(conditions)) {</span>
+<span class="cstat-no" title="statement not covered" >    this.merge(conditions);</span>
+  } else <span class="cstat-no" title="statement not covered" >if (conditions != null) {</span>
+<span class="cstat-no" title="statement not covered" >    throw new Error('Invalid argument to findOne(): ' +</span>
       util.inspect(conditions));
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  prepareDiscriminatorCriteria(this);</span>
+<span class="cstat-no" title="statement not covered" >  prepareDiscriminatorCriteria(this);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  try {</span>
-<span class="cstat-no" title="statement not covered">    this.cast(this.model);</span>
-<span class="cstat-no" title="statement not covered">    this._castError = null;</span>
+<span class="cstat-no" title="statement not covered" >  try {</span>
+<span class="cstat-no" title="statement not covered" >    this.cast(this.model);</span>
+<span class="cstat-no" title="statement not covered" >    this._castError = null;</span>
   } catch (err) {
-<span class="cstat-no" title="statement not covered">    this._castError = err;</span>
+<span class="cstat-no" title="statement not covered" >    this._castError = err;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (!callback) {</span>
+<span class="cstat-no" title="statement not covered" >  if (!callback) {</span>
     // already merged in the conditions, don't need to send them in.
-<span class="cstat-no" title="statement not covered">    return Query.base.findOne.call(this);</span>
+<span class="cstat-no" title="statement not covered" >    return Query.base.findOne.call(this);</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  this._findOne(callback);</span>
+<span class="cstat-no" title="statement not covered" >  this._findOne(callback);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  return this;</span>
+<span class="cstat-no" title="statement not covered" >  return this;</span>
 };
 &nbsp;
 /**
@@ -8652,20 +8654,20 @@ Query.prototype.findOne = <span class="fstat-no" title="function not covered">fu
  * @api private
  */
 &nbsp;
-Query.prototype._count = <span class="fstat-no" title="function not covered">function(callback) {</span>
-<span class="cstat-no" title="statement not covered">  try {</span>
-<span class="cstat-no" title="statement not covered">    this.cast(this.model);</span>
+Query.prototype._count = <span class="fstat-no" title="function not covered" >function(callback) {</span>
+<span class="cstat-no" title="statement not covered" >  try {</span>
+<span class="cstat-no" title="statement not covered" >    this.cast(this.model);</span>
   } catch (err) {
-<span class="cstat-no" title="statement not covered">    process.nextTick(<span class="fstat-no" title="function not covered">function() {</span></span>
-<span class="cstat-no" title="statement not covered">      callback(err);</span>
+<span class="cstat-no" title="statement not covered" >    process.nextTick(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >      callback(err);</span>
     });
-<span class="cstat-no" title="statement not covered">    return this;</span>
+<span class="cstat-no" title="statement not covered" >    return this;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  var conds = this._conditions;</span>
-<span class="cstat-no" title="statement not covered">  var options = this._optionsForExec();</span>
+<span class="cstat-no" title="statement not covered" >  var conds = this._conditions;</span>
+<span class="cstat-no" title="statement not covered" >  var options = this._optionsForExec();</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  this._collection.count(conds, options, utils.tick(callback));</span>
+<span class="cstat-no" title="statement not covered" >  this._collection.count(conds, options, utils.tick(callback));</span>
 };
 &nbsp;
 /**
@@ -8693,24 +8695,24 @@ Query.prototype._count = <span class="fstat-no" title="function not covered">fun
  * @api public
  */
 &nbsp;
-Query.prototype.count = <span class="fstat-no" title="function not covered">function(conditions, callback) {</span>
-<span class="cstat-no" title="statement not covered">  if (typeof conditions === 'function') {</span>
-<span class="cstat-no" title="statement not covered">    callback = conditions;</span>
-<span class="cstat-no" title="statement not covered">    conditions = undefined;</span>
+Query.prototype.count = <span class="fstat-no" title="function not covered" >function(conditions, callback) {</span>
+<span class="cstat-no" title="statement not covered" >  if (typeof conditions === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >    callback = conditions;</span>
+<span class="cstat-no" title="statement not covered" >    conditions = undefined;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (mquery.canMerge(conditions)) {</span>
-<span class="cstat-no" title="statement not covered">    this.merge(conditions);</span>
+<span class="cstat-no" title="statement not covered" >  if (mquery.canMerge(conditions)) {</span>
+<span class="cstat-no" title="statement not covered" >    this.merge(conditions);</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  this.op = 'count';</span>
-<span class="cstat-no" title="statement not covered">  if (!callback) {</span>
-<span class="cstat-no" title="statement not covered">    return this;</span>
+<span class="cstat-no" title="statement not covered" >  this.op = 'count';</span>
+<span class="cstat-no" title="statement not covered" >  if (!callback) {</span>
+<span class="cstat-no" title="statement not covered" >    return this;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  this._count(callback);</span>
+<span class="cstat-no" title="statement not covered" >  this._count(callback);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  return this;</span>
+<span class="cstat-no" title="statement not covered" >  return this;</span>
 };
 &nbsp;
 /**
@@ -8735,35 +8737,35 @@ Query.prototype.count = <span class="fstat-no" title="function not covered">func
  * @api public
  */
 &nbsp;
-Query.prototype.distinct = <span class="fstat-no" title="function not covered">function(field, conditions, callback) {</span>
-<span class="cstat-no" title="statement not covered">  if (!callback) {</span>
-<span class="cstat-no" title="statement not covered">    if (typeof conditions === 'function') {</span>
-<span class="cstat-no" title="statement not covered">      callback = conditions;</span>
-<span class="cstat-no" title="statement not covered">      conditions = undefined;</span>
-    } else <span class="cstat-no" title="statement not covered">if (typeof field === 'function') {</span>
-<span class="cstat-no" title="statement not covered">      callback = field;</span>
-<span class="cstat-no" title="statement not covered">      field = undefined;</span>
-<span class="cstat-no" title="statement not covered">      conditions = undefined;</span>
+Query.prototype.distinct = <span class="fstat-no" title="function not covered" >function(field, conditions, callback) {</span>
+<span class="cstat-no" title="statement not covered" >  if (!callback) {</span>
+<span class="cstat-no" title="statement not covered" >    if (typeof conditions === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >      callback = conditions;</span>
+<span class="cstat-no" title="statement not covered" >      conditions = undefined;</span>
+    } else <span class="cstat-no" title="statement not covered" >if (typeof field === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >      callback = field;</span>
+<span class="cstat-no" title="statement not covered" >      field = undefined;</span>
+<span class="cstat-no" title="statement not covered" >      conditions = undefined;</span>
     }
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  conditions = utils.toObject(conditions);</span>
+<span class="cstat-no" title="statement not covered" >  conditions = utils.toObject(conditions);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (mquery.canMerge(conditions)) {</span>
-<span class="cstat-no" title="statement not covered">    this.merge(conditions);</span>
+<span class="cstat-no" title="statement not covered" >  if (mquery.canMerge(conditions)) {</span>
+<span class="cstat-no" title="statement not covered" >    this.merge(conditions);</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  try {</span>
-<span class="cstat-no" title="statement not covered">    this.cast(this.model);</span>
+<span class="cstat-no" title="statement not covered" >  try {</span>
+<span class="cstat-no" title="statement not covered" >    this.cast(this.model);</span>
   } catch (err) {
-<span class="cstat-no" title="statement not covered">    if (!callback) {</span>
-<span class="cstat-no" title="statement not covered">      throw err;</span>
+<span class="cstat-no" title="statement not covered" >    if (!callback) {</span>
+<span class="cstat-no" title="statement not covered" >      throw err;</span>
     }
-<span class="cstat-no" title="statement not covered">    callback(err);</span>
-<span class="cstat-no" title="statement not covered">    return this;</span>
+<span class="cstat-no" title="statement not covered" >    callback(err);</span>
+<span class="cstat-no" title="statement not covered" >    return this;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  return Query.base.distinct.call(this, {}, field, callback);</span>
+<span class="cstat-no" title="statement not covered" >  return Query.base.distinct.call(this, {}, field, callback);</span>
 };
 &nbsp;
 /**
@@ -8793,12 +8795,12 @@ Query.prototype.distinct = <span class="fstat-no" title="function not covered">f
  * @api public
  */
 &nbsp;
-Query.prototype.sort = <span class="fstat-no" title="function not covered">function(arg) {</span>
-<span class="cstat-no" title="statement not covered">  if (arguments.length &gt; 1) {</span>
-<span class="cstat-no" title="statement not covered">    throw new Error('sort() only takes 1 Argument');</span>
+Query.prototype.sort = <span class="fstat-no" title="function not covered" >function(arg) {</span>
+<span class="cstat-no" title="statement not covered" >  if (arguments.length &gt; 1) {</span>
+<span class="cstat-no" title="statement not covered" >    throw new Error('sort() only takes 1 Argument');</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  return Query.base.sort.call(this, arg);</span>
+<span class="cstat-no" title="statement not covered" >  return Query.base.sort.call(this, arg);</span>
 };
 &nbsp;
 /**
@@ -8836,22 +8838,22 @@ Query.prototype.sort = <span class="fstat-no" title="function not covered">funct
  * @api public
  */
 &nbsp;
-Query.prototype.remove = <span class="fstat-no" title="function not covered">function(cond, callback) {</span>
-<span class="cstat-no" title="statement not covered">  if (typeof cond === 'function') {</span>
-<span class="cstat-no" title="statement not covered">    callback = cond;</span>
-<span class="cstat-no" title="statement not covered">    cond = null;</span>
+Query.prototype.remove = <span class="fstat-no" title="function not covered" >function(cond, callback) {</span>
+<span class="cstat-no" title="statement not covered" >  if (typeof cond === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >    callback = cond;</span>
+<span class="cstat-no" title="statement not covered" >    cond = null;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  var cb = typeof callback === 'function';</span>
+<span class="cstat-no" title="statement not covered" >  var cb = typeof callback === 'function';</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  try {</span>
-<span class="cstat-no" title="statement not covered">    this.cast(this.model);</span>
+<span class="cstat-no" title="statement not covered" >  try {</span>
+<span class="cstat-no" title="statement not covered" >    this.cast(this.model);</span>
   } catch (err) {
-<span class="cstat-no" title="statement not covered">    if (cb) <span class="cstat-no" title="statement not covered">return process.nextTick(callback.bind(null, err));</span></span>
-<span class="cstat-no" title="statement not covered">    return this;</span>
+<span class="cstat-no" title="statement not covered" >    if (cb) <span class="cstat-no" title="statement not covered" >return process.nextTick(callback.bind(null, err));</span></span>
+<span class="cstat-no" title="statement not covered" >    return this;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  return Query.base.remove.call(this, cond, callback);</span>
+<span class="cstat-no" title="statement not covered" >  return Query.base.remove.call(this, cond, callback);</span>
 };
 &nbsp;
 /**
@@ -8872,22 +8874,22 @@ Query.prototype.remove = <span class="fstat-no" title="function not covered">fun
  * @api public
  */
 &nbsp;
-Query.prototype.deleteOne = <span class="fstat-no" title="function not covered">function(cond, callback) {</span>
-<span class="cstat-no" title="statement not covered">  if (typeof cond === 'function') {</span>
-<span class="cstat-no" title="statement not covered">    callback = cond;</span>
-<span class="cstat-no" title="statement not covered">    cond = null;</span>
+Query.prototype.deleteOne = <span class="fstat-no" title="function not covered" >function(cond, callback) {</span>
+<span class="cstat-no" title="statement not covered" >  if (typeof cond === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >    callback = cond;</span>
+<span class="cstat-no" title="statement not covered" >    cond = null;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  var cb = typeof callback === 'function';</span>
+<span class="cstat-no" title="statement not covered" >  var cb = typeof callback === 'function';</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  try {</span>
-<span class="cstat-no" title="statement not covered">    this.cast(this.model);</span>
+<span class="cstat-no" title="statement not covered" >  try {</span>
+<span class="cstat-no" title="statement not covered" >    this.cast(this.model);</span>
   } catch (err) {
-<span class="cstat-no" title="statement not covered">    if (cb) <span class="cstat-no" title="statement not covered">return process.nextTick(callback.bind(null, err));</span></span>
-<span class="cstat-no" title="statement not covered">    return this;</span>
+<span class="cstat-no" title="statement not covered" >    if (cb) <span class="cstat-no" title="statement not covered" >return process.nextTick(callback.bind(null, err));</span></span>
+<span class="cstat-no" title="statement not covered" >    return this;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  return Query.base.deleteOne.call(this, cond, callback);</span>
+<span class="cstat-no" title="statement not covered" >  return Query.base.deleteOne.call(this, cond, callback);</span>
 };
 &nbsp;
 /**
@@ -8908,22 +8910,22 @@ Query.prototype.deleteOne = <span class="fstat-no" title="function not covered">
  * @api public
  */
 &nbsp;
-Query.prototype.deleteMany = <span class="fstat-no" title="function not covered">function(cond, callback) {</span>
-<span class="cstat-no" title="statement not covered">  if (typeof cond === 'function') {</span>
-<span class="cstat-no" title="statement not covered">    callback = cond;</span>
-<span class="cstat-no" title="statement not covered">    cond = null;</span>
+Query.prototype.deleteMany = <span class="fstat-no" title="function not covered" >function(cond, callback) {</span>
+<span class="cstat-no" title="statement not covered" >  if (typeof cond === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >    callback = cond;</span>
+<span class="cstat-no" title="statement not covered" >    cond = null;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  var cb = typeof callback === 'function';</span>
+<span class="cstat-no" title="statement not covered" >  var cb = typeof callback === 'function';</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  try {</span>
-<span class="cstat-no" title="statement not covered">    this.cast(this.model);</span>
+<span class="cstat-no" title="statement not covered" >  try {</span>
+<span class="cstat-no" title="statement not covered" >    this.cast(this.model);</span>
   } catch (err) {
-<span class="cstat-no" title="statement not covered">    if (cb) <span class="cstat-no" title="statement not covered">return process.nextTick(callback.bind(null, err));</span></span>
-<span class="cstat-no" title="statement not covered">    return this;</span>
+<span class="cstat-no" title="statement not covered" >    if (cb) <span class="cstat-no" title="statement not covered" >return process.nextTick(callback.bind(null, err));</span></span>
+<span class="cstat-no" title="statement not covered" >    return this;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  return Query.base.deleteMany.call(this, cond, callback);</span>
+<span class="cstat-no" title="statement not covered" >  return Query.base.deleteMany.call(this, cond, callback);</span>
 };
 &nbsp;
 /*!
@@ -8938,25 +8940,25 @@ Query.prototype.deleteMany = <span class="fstat-no" title="function not covered"
  * @param {Function} callback
  */
 &nbsp;
-<span class="fstat-no" title="function not covered">function completeOne(model, doc, res, options, fields, pop, callback) {</span>
-<span class="cstat-no" title="statement not covered">  var opts = pop ?</span>
+<span class="fstat-no" title="function not covered" >function completeOne(model, doc, res, options, fields, pop, callback) {</span>
+<span class="cstat-no" title="statement not covered" >  var opts = pop ?</span>
   {populated: pop}
       : undefined;
 &nbsp;
-<span class="cstat-no" title="statement not covered">  var casted = helpers.createModel(model, doc, fields);</span>
-<span class="cstat-no" title="statement not covered">  casted.init(doc, opts, <span class="fstat-no" title="function not covered">function(err) {</span></span>
-<span class="cstat-no" title="statement not covered">    if (err) {</span>
-<span class="cstat-no" title="statement not covered">      return callback(err);</span>
+<span class="cstat-no" title="statement not covered" >  var casted = helpers.createModel(model, doc, fields);</span>
+<span class="cstat-no" title="statement not covered" >  casted.init(doc, opts, <span class="fstat-no" title="function not covered" >function(err) {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (err) {</span>
+<span class="cstat-no" title="statement not covered" >      return callback(err);</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if (options.rawResult) {</span>
-<span class="cstat-no" title="statement not covered">      res.value = casted;</span>
-<span class="cstat-no" title="statement not covered">      return callback(null, res);</span>
+<span class="cstat-no" title="statement not covered" >    if (options.rawResult) {</span>
+<span class="cstat-no" title="statement not covered" >      res.value = casted;</span>
+<span class="cstat-no" title="statement not covered" >      return callback(null, res);</span>
     }
-<span class="cstat-no" title="statement not covered">    if (options.passRawResult) {</span>
-<span class="cstat-no" title="statement not covered">      return callback(null, casted, decorateResult(res));</span>
+<span class="cstat-no" title="statement not covered" >    if (options.passRawResult) {</span>
+<span class="cstat-no" title="statement not covered" >      return callback(null, casted, decorateResult(res));</span>
     }
-<span class="cstat-no" title="statement not covered">    callback(null, casted);</span>
+<span class="cstat-no" title="statement not covered" >    callback(null, casted);</span>
   });
 }
 &nbsp;
@@ -8964,15 +8966,15 @@ Query.prototype.deleteMany = <span class="fstat-no" title="function not covered"
  * If the model is a discriminator type and not root, then add the key &amp; value to the criteria.
  */
 &nbsp;
-<span class="fstat-no" title="function not covered">function prepareDiscriminatorCriteria(query) {</span>
-<span class="cstat-no" title="statement not covered">  if (!query || !query.model || !query.model.schema) {</span>
-<span class="cstat-no" title="statement not covered">    return;</span>
+<span class="fstat-no" title="function not covered" >function prepareDiscriminatorCriteria(query) {</span>
+<span class="cstat-no" title="statement not covered" >  if (!query || !query.model || !query.model.schema) {</span>
+<span class="cstat-no" title="statement not covered" >    return;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  var schema = query.model.schema;</span>
+<span class="cstat-no" title="statement not covered" >  var schema = query.model.schema;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (schema &amp;&amp; schema.discriminatorMapping &amp;&amp; !schema.discriminatorMapping.isRoot) {</span>
-<span class="cstat-no" title="statement not covered">    query._conditions[schema.discriminatorMapping.key] = schema.discriminatorMapping.value;</span>
+<span class="cstat-no" title="statement not covered" >  if (schema &amp;&amp; schema.discriminatorMapping &amp;&amp; !schema.discriminatorMapping.isRoot) {</span>
+<span class="cstat-no" title="statement not covered" >    query._conditions[schema.discriminatorMapping.key] = schema.discriminatorMapping.value;</span>
   }
 }
 &nbsp;
@@ -9024,63 +9026,63 @@ Query.prototype.deleteMany = <span class="fstat-no" title="function not covered"
  * @api public
  */
 &nbsp;
-Query.prototype.findOneAndUpdate = <span class="fstat-no" title="function not covered">function(criteria, doc, options, callback) {</span>
-<span class="cstat-no" title="statement not covered">  this.op = 'findOneAndUpdate';</span>
-<span class="cstat-no" title="statement not covered">  this._validate();</span>
+Query.prototype.findOneAndUpdate = <span class="fstat-no" title="function not covered" >function(criteria, doc, options, callback) {</span>
+<span class="cstat-no" title="statement not covered" >  this.op = 'findOneAndUpdate';</span>
+<span class="cstat-no" title="statement not covered" >  this._validate();</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  switch (arguments.length) {</span>
+<span class="cstat-no" title="statement not covered" >  switch (arguments.length) {</span>
     case 3:
-<span class="cstat-no" title="statement not covered">      if (typeof options === 'function') {</span>
-<span class="cstat-no" title="statement not covered">        callback = options;</span>
-<span class="cstat-no" title="statement not covered">        options = {};</span>
+<span class="cstat-no" title="statement not covered" >      if (typeof options === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >        callback = options;</span>
+<span class="cstat-no" title="statement not covered" >        options = {};</span>
       }
-<span class="cstat-no" title="statement not covered">      break;</span>
+<span class="cstat-no" title="statement not covered" >      break;</span>
     case 2:
-<span class="cstat-no" title="statement not covered">      if (typeof doc === 'function') {</span>
-<span class="cstat-no" title="statement not covered">        callback = doc;</span>
-<span class="cstat-no" title="statement not covered">        doc = criteria;</span>
-<span class="cstat-no" title="statement not covered">        criteria = undefined;</span>
+<span class="cstat-no" title="statement not covered" >      if (typeof doc === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >        callback = doc;</span>
+<span class="cstat-no" title="statement not covered" >        doc = criteria;</span>
+<span class="cstat-no" title="statement not covered" >        criteria = undefined;</span>
       }
-<span class="cstat-no" title="statement not covered">      options = undefined;</span>
-<span class="cstat-no" title="statement not covered">      break;</span>
+<span class="cstat-no" title="statement not covered" >      options = undefined;</span>
+<span class="cstat-no" title="statement not covered" >      break;</span>
     case 1:
-<span class="cstat-no" title="statement not covered">      if (typeof criteria === 'function') {</span>
-<span class="cstat-no" title="statement not covered">        callback = criteria;</span>
-<span class="cstat-no" title="statement not covered">        criteria = options = doc = undefined;</span>
+<span class="cstat-no" title="statement not covered" >      if (typeof criteria === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >        callback = criteria;</span>
+<span class="cstat-no" title="statement not covered" >        criteria = options = doc = undefined;</span>
       } else {
-<span class="cstat-no" title="statement not covered">        doc = criteria;</span>
-<span class="cstat-no" title="statement not covered">        criteria = options = undefined;</span>
+<span class="cstat-no" title="statement not covered" >        doc = criteria;</span>
+<span class="cstat-no" title="statement not covered" >        criteria = options = undefined;</span>
       }
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (mquery.canMerge(criteria)) {</span>
-<span class="cstat-no" title="statement not covered">    this.merge(criteria);</span>
+<span class="cstat-no" title="statement not covered" >  if (mquery.canMerge(criteria)) {</span>
+<span class="cstat-no" title="statement not covered" >    this.merge(criteria);</span>
   }
 &nbsp;
   // apply doc
-<span class="cstat-no" title="statement not covered">  if (doc) {</span>
-<span class="cstat-no" title="statement not covered">    this._mergeUpdate(doc);</span>
+<span class="cstat-no" title="statement not covered" >  if (doc) {</span>
+<span class="cstat-no" title="statement not covered" >    this._mergeUpdate(doc);</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (options) {</span>
-<span class="cstat-no" title="statement not covered">    options = utils.clone(options, { retainKeyOrder: true });</span>
-<span class="cstat-no" title="statement not covered">    if (options.projection) {</span>
-<span class="cstat-no" title="statement not covered">      this.select(options.projection);</span>
-<span class="cstat-no" title="statement not covered">      delete options.projection;</span>
+<span class="cstat-no" title="statement not covered" >  if (options) {</span>
+<span class="cstat-no" title="statement not covered" >    options = utils.clone(options, { retainKeyOrder: true });</span>
+<span class="cstat-no" title="statement not covered" >    if (options.projection) {</span>
+<span class="cstat-no" title="statement not covered" >      this.select(options.projection);</span>
+<span class="cstat-no" title="statement not covered" >      delete options.projection;</span>
     }
-<span class="cstat-no" title="statement not covered">    if (options.fields) {</span>
-<span class="cstat-no" title="statement not covered">      this.select(options.fields);</span>
-<span class="cstat-no" title="statement not covered">      delete options.fields;</span>
+<span class="cstat-no" title="statement not covered" >    if (options.fields) {</span>
+<span class="cstat-no" title="statement not covered" >      this.select(options.fields);</span>
+<span class="cstat-no" title="statement not covered" >      delete options.fields;</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    this.setOptions(options);</span>
+<span class="cstat-no" title="statement not covered" >    this.setOptions(options);</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (!callback) {</span>
-<span class="cstat-no" title="statement not covered">    return this;</span>
+<span class="cstat-no" title="statement not covered" >  if (!callback) {</span>
+<span class="cstat-no" title="statement not covered" >    return this;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  return this._findOneAndUpdate(callback);</span>
+<span class="cstat-no" title="statement not covered" >  return this._findOneAndUpdate(callback);</span>
 };
 &nbsp;
 /*!
@@ -9090,9 +9092,9 @@ Query.prototype.findOneAndUpdate = <span class="fstat-no" title="function not co
  * @api private
  */
 &nbsp;
-Query.prototype._findOneAndUpdate = <span class="fstat-no" title="function not covered">function(callback) {</span>
-<span class="cstat-no" title="statement not covered">  this._findAndModify('update', callback);</span>
-<span class="cstat-no" title="statement not covered">  return this;</span>
+Query.prototype._findOneAndUpdate = <span class="fstat-no" title="function not covered" >function(callback) {</span>
+<span class="cstat-no" title="statement not covered" >  this._findAndModify('update', callback);</span>
+<span class="cstat-no" title="statement not covered" >  return this;</span>
 };
 &nbsp;
 /**
@@ -9134,39 +9136,39 @@ Query.prototype._findOneAndUpdate = <span class="fstat-no" title="function not c
  * @api public
  */
 &nbsp;
-Query.prototype.findOneAndRemove = <span class="fstat-no" title="function not covered">function(conditions, options, callback) {</span>
-<span class="cstat-no" title="statement not covered">  this.op = 'findOneAndRemove';</span>
-<span class="cstat-no" title="statement not covered">  this._validate();</span>
+Query.prototype.findOneAndRemove = <span class="fstat-no" title="function not covered" >function(conditions, options, callback) {</span>
+<span class="cstat-no" title="statement not covered" >  this.op = 'findOneAndRemove';</span>
+<span class="cstat-no" title="statement not covered" >  this._validate();</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  switch (arguments.length) {</span>
+<span class="cstat-no" title="statement not covered" >  switch (arguments.length) {</span>
     case 2:
-<span class="cstat-no" title="statement not covered">      if (typeof options === 'function') {</span>
-<span class="cstat-no" title="statement not covered">        callback = options;</span>
-<span class="cstat-no" title="statement not covered">        options = {};</span>
+<span class="cstat-no" title="statement not covered" >      if (typeof options === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >        callback = options;</span>
+<span class="cstat-no" title="statement not covered" >        options = {};</span>
       }
-<span class="cstat-no" title="statement not covered">      break;</span>
+<span class="cstat-no" title="statement not covered" >      break;</span>
     case 1:
-<span class="cstat-no" title="statement not covered">      if (typeof conditions === 'function') {</span>
-<span class="cstat-no" title="statement not covered">        callback = conditions;</span>
-<span class="cstat-no" title="statement not covered">        conditions = undefined;</span>
-<span class="cstat-no" title="statement not covered">        options = undefined;</span>
+<span class="cstat-no" title="statement not covered" >      if (typeof conditions === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >        callback = conditions;</span>
+<span class="cstat-no" title="statement not covered" >        conditions = undefined;</span>
+<span class="cstat-no" title="statement not covered" >        options = undefined;</span>
       }
-<span class="cstat-no" title="statement not covered">      break;</span>
+<span class="cstat-no" title="statement not covered" >      break;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (mquery.canMerge(conditions)) {</span>
-<span class="cstat-no" title="statement not covered">    this.merge(conditions);</span>
+<span class="cstat-no" title="statement not covered" >  if (mquery.canMerge(conditions)) {</span>
+<span class="cstat-no" title="statement not covered" >    this.merge(conditions);</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  options &amp;&amp; this.setOptions(options);</span>
+<span class="cstat-no" title="statement not covered" >  options &amp;&amp; this.setOptions(options);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (!callback) {</span>
-<span class="cstat-no" title="statement not covered">    return this;</span>
+<span class="cstat-no" title="statement not covered" >  if (!callback) {</span>
+<span class="cstat-no" title="statement not covered" >    return this;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  this._findOneAndRemove(callback);</span>
+<span class="cstat-no" title="statement not covered" >  this._findOneAndRemove(callback);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  return this;</span>
+<span class="cstat-no" title="statement not covered" >  return this;</span>
 };
 &nbsp;
 /*!
@@ -9176,19 +9178,19 @@ Query.prototype.findOneAndRemove = <span class="fstat-no" title="function not co
  * @return {Query} this
  * @api private
  */
-Query.prototype._findOneAndRemove = <span class="fstat-no" title="function not covered">function(callback) {</span>
-<span class="cstat-no" title="statement not covered">  Query.base.findOneAndRemove.call(this, callback);</span>
+Query.prototype._findOneAndRemove = <span class="fstat-no" title="function not covered" >function(callback) {</span>
+<span class="cstat-no" title="statement not covered" >  Query.base.findOneAndRemove.call(this, callback);</span>
 };
 &nbsp;
 /*!
  * ignore
  */
 &nbsp;
-<span class="fstat-no" title="function not covered">function decorateResult(res) {</span>
-<span class="cstat-no" title="statement not covered">  if (res) {</span>
-<span class="cstat-no" title="statement not covered">    res._kareemIgnore = true;</span>
+<span class="fstat-no" title="function not covered" >function decorateResult(res) {</span>
+<span class="cstat-no" title="statement not covered" >  if (res) {</span>
+<span class="cstat-no" title="statement not covered" >    res._kareemIgnore = true;</span>
   }
-<span class="cstat-no" title="statement not covered">  return res;</span>
+<span class="cstat-no" title="statement not covered" >  return res;</span>
 }
 &nbsp;
 /*!
@@ -9199,156 +9201,156 @@ Query.prototype._findOneAndRemove = <span class="fstat-no" title="function not c
  * @api private
  */
 &nbsp;
-Query.prototype._findAndModify = <span class="fstat-no" title="function not covered">function(type, callback) {</span>
-<span class="cstat-no" title="statement not covered">  if (typeof callback !== 'function') {</span>
-<span class="cstat-no" title="statement not covered">    throw new Error('Expected callback in _findAndModify');</span>
+Query.prototype._findAndModify = <span class="fstat-no" title="function not covered" >function(type, callback) {</span>
+<span class="cstat-no" title="statement not covered" >  if (typeof callback !== 'function') {</span>
+<span class="cstat-no" title="statement not covered" >    throw new Error('Expected callback in _findAndModify');</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  var model = this.model;</span>
-<span class="cstat-no" title="statement not covered">  var schema = model.schema;</span>
-<span class="cstat-no" title="statement not covered">  var _this = this;</span>
-<span class="cstat-no" title="statement not covered">  var castedQuery;</span>
-<span class="cstat-no" title="statement not covered">  var castedDoc;</span>
-<span class="cstat-no" title="statement not covered">  var fields;</span>
-<span class="cstat-no" title="statement not covered">  var opts;</span>
-<span class="cstat-no" title="statement not covered">  var doValidate;</span>
+<span class="cstat-no" title="statement not covered" >  var model = this.model;</span>
+<span class="cstat-no" title="statement not covered" >  var schema = model.schema;</span>
+<span class="cstat-no" title="statement not covered" >  var _this = this;</span>
+<span class="cstat-no" title="statement not covered" >  var castedQuery;</span>
+<span class="cstat-no" title="statement not covered" >  var castedDoc;</span>
+<span class="cstat-no" title="statement not covered" >  var fields;</span>
+<span class="cstat-no" title="statement not covered" >  var opts;</span>
+<span class="cstat-no" title="statement not covered" >  var doValidate;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  castedQuery = castQuery(this);</span>
-<span class="cstat-no" title="statement not covered">  if (castedQuery instanceof Error) {</span>
-<span class="cstat-no" title="statement not covered">    return callback(castedQuery);</span>
+<span class="cstat-no" title="statement not covered" >  castedQuery = castQuery(this);</span>
+<span class="cstat-no" title="statement not covered" >  if (castedQuery instanceof Error) {</span>
+<span class="cstat-no" title="statement not covered" >    return callback(castedQuery);</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  opts = this._optionsForExec(model);</span>
+<span class="cstat-no" title="statement not covered" >  opts = this._optionsForExec(model);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if ('strict' in opts) {</span>
-<span class="cstat-no" title="statement not covered">    this._mongooseOptions.strict = opts.strict;</span>
+<span class="cstat-no" title="statement not covered" >  if ('strict' in opts) {</span>
+<span class="cstat-no" title="statement not covered" >    this._mongooseOptions.strict = opts.strict;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (type === 'remove') {</span>
-<span class="cstat-no" title="statement not covered">    opts.remove = true;</span>
+<span class="cstat-no" title="statement not covered" >  if (type === 'remove') {</span>
+<span class="cstat-no" title="statement not covered" >    opts.remove = true;</span>
   } else {
-<span class="cstat-no" title="statement not covered">    if (!('new' in opts)) {</span>
-<span class="cstat-no" title="statement not covered">      opts.new = false;</span>
+<span class="cstat-no" title="statement not covered" >    if (!('new' in opts)) {</span>
+<span class="cstat-no" title="statement not covered" >      opts.new = false;</span>
     }
-<span class="cstat-no" title="statement not covered">    if (!('upsert' in opts)) {</span>
-<span class="cstat-no" title="statement not covered">      opts.upsert = false;</span>
+<span class="cstat-no" title="statement not covered" >    if (!('upsert' in opts)) {</span>
+<span class="cstat-no" title="statement not covered" >      opts.upsert = false;</span>
     }
-<span class="cstat-no" title="statement not covered">    if (opts.upsert || opts['new']) {</span>
-<span class="cstat-no" title="statement not covered">      opts.remove = false;</span>
+<span class="cstat-no" title="statement not covered" >    if (opts.upsert || opts['new']) {</span>
+<span class="cstat-no" title="statement not covered" >      opts.remove = false;</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    castedDoc = castDoc(this, opts.overwrite);</span>
-<span class="cstat-no" title="statement not covered">    castedDoc = setDefaultsOnInsert(this, schema, castedDoc, opts);</span>
-<span class="cstat-no" title="statement not covered">    if (!castedDoc) {</span>
-<span class="cstat-no" title="statement not covered">      if (opts.upsert) {</span>
+<span class="cstat-no" title="statement not covered" >    castedDoc = castDoc(this, opts.overwrite);</span>
+<span class="cstat-no" title="statement not covered" >    castedDoc = setDefaultsOnInsert(this, schema, castedDoc, opts);</span>
+<span class="cstat-no" title="statement not covered" >    if (!castedDoc) {</span>
+<span class="cstat-no" title="statement not covered" >      if (opts.upsert) {</span>
         // still need to do the upsert to empty doc
-<span class="cstat-no" title="statement not covered">        var doc = utils.clone(castedQuery);</span>
-<span class="cstat-no" title="statement not covered">        delete doc._id;</span>
-<span class="cstat-no" title="statement not covered">        castedDoc = {$set: doc};</span>
+<span class="cstat-no" title="statement not covered" >        var doc = utils.clone(castedQuery);</span>
+<span class="cstat-no" title="statement not covered" >        delete doc._id;</span>
+<span class="cstat-no" title="statement not covered" >        castedDoc = {$set: doc};</span>
       } else {
-<span class="cstat-no" title="statement not covered">        return this.findOne(callback);</span>
+<span class="cstat-no" title="statement not covered" >        return this.findOne(callback);</span>
       }
-    } else <span class="cstat-no" title="statement not covered">if (castedDoc instanceof Error) {</span>
-<span class="cstat-no" title="statement not covered">      return callback(castedDoc);</span>
+    } else <span class="cstat-no" title="statement not covered" >if (castedDoc instanceof Error) {</span>
+<span class="cstat-no" title="statement not covered" >      return callback(castedDoc);</span>
     } else {
       // In order to make MongoDB 2.6 happy (see
       // https://jira.mongodb.org/browse/SERVER-12266 and related issues)
       // if we have an actual update document but $set is empty, junk the $set.
-<span class="cstat-no" title="statement not covered">      if (castedDoc.$set &amp;&amp; Object.keys(castedDoc.$set).length === 0) {</span>
-<span class="cstat-no" title="statement not covered">        delete castedDoc.$set;</span>
+<span class="cstat-no" title="statement not covered" >      if (castedDoc.$set &amp;&amp; Object.keys(castedDoc.$set).length === 0) {</span>
+<span class="cstat-no" title="statement not covered" >        delete castedDoc.$set;</span>
       }
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    doValidate = updateValidators(this, schema, castedDoc, opts);</span>
+<span class="cstat-no" title="statement not covered" >    doValidate = updateValidators(this, schema, castedDoc, opts);</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  this._applyPaths();</span>
+<span class="cstat-no" title="statement not covered" >  this._applyPaths();</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  var options = this._mongooseOptions;</span>
+<span class="cstat-no" title="statement not covered" >  var options = this._mongooseOptions;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (this._fields) {</span>
-<span class="cstat-no" title="statement not covered">    fields = utils.clone(this._fields);</span>
-<span class="cstat-no" title="statement not covered">    opts.fields = this._castFields(fields);</span>
-<span class="cstat-no" title="statement not covered">    if (opts.fields instanceof Error) {</span>
-<span class="cstat-no" title="statement not covered">      return callback(opts.fields);</span>
+<span class="cstat-no" title="statement not covered" >  if (this._fields) {</span>
+<span class="cstat-no" title="statement not covered" >    fields = utils.clone(this._fields);</span>
+<span class="cstat-no" title="statement not covered" >    opts.fields = this._castFields(fields);</span>
+<span class="cstat-no" title="statement not covered" >    if (opts.fields instanceof Error) {</span>
+<span class="cstat-no" title="statement not covered" >      return callback(opts.fields);</span>
     }
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (opts.sort) <span class="cstat-no" title="statement not covered">convertSortToArray(opts);</span></span>
+<span class="cstat-no" title="statement not covered" >  if (opts.sort) <span class="cstat-no" title="statement not covered" >convertSortToArray(opts);</span></span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  var cb = <span class="fstat-no" title="function not covered">function(err, doc, res) {</span></span>
-<span class="cstat-no" title="statement not covered">    if (err) {</span>
-<span class="cstat-no" title="statement not covered">      return callback(err);</span>
+<span class="cstat-no" title="statement not covered" >  var cb = <span class="fstat-no" title="function not covered" >function(err, doc, res) {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (err) {</span>
+<span class="cstat-no" title="statement not covered" >      return callback(err);</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if (!doc || (utils.isObject(doc) &amp;&amp; Object.keys(doc).length === 0)) {</span>
-<span class="cstat-no" title="statement not covered">      if (opts.rawResult) {</span>
-<span class="cstat-no" title="statement not covered">        return callback(null, res);</span>
+<span class="cstat-no" title="statement not covered" >    if (!doc || (utils.isObject(doc) &amp;&amp; Object.keys(doc).length === 0)) {</span>
+<span class="cstat-no" title="statement not covered" >      if (opts.rawResult) {</span>
+<span class="cstat-no" title="statement not covered" >        return callback(null, res);</span>
       }
       // opts.passRawResult will be deprecated soon
-<span class="cstat-no" title="statement not covered">      if (opts.passRawResult) {</span>
-<span class="cstat-no" title="statement not covered">        return callback(null, null, decorateResult(res));</span>
+<span class="cstat-no" title="statement not covered" >      if (opts.passRawResult) {</span>
+<span class="cstat-no" title="statement not covered" >        return callback(null, null, decorateResult(res));</span>
       }
-<span class="cstat-no" title="statement not covered">      return callback(null, null);</span>
+<span class="cstat-no" title="statement not covered" >      return callback(null, null);</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if (!options.populate) {</span>
-<span class="cstat-no" title="statement not covered">      if (options.lean === true) {</span>
-<span class="cstat-no" title="statement not covered">        return _completeOneLean(doc, res, opts, callback);</span>
+<span class="cstat-no" title="statement not covered" >    if (!options.populate) {</span>
+<span class="cstat-no" title="statement not covered" >      if (options.lean === true) {</span>
+<span class="cstat-no" title="statement not covered" >        return _completeOneLean(doc, res, opts, callback);</span>
       }
-<span class="cstat-no" title="statement not covered">      return completeOne(_this.model, doc, res, opts, fields, null, callback);</span>
+<span class="cstat-no" title="statement not covered" >      return completeOne(_this.model, doc, res, opts, fields, null, callback);</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    var pop = helpers.preparePopulationOptionsMQ(_this, options);</span>
-<span class="cstat-no" title="statement not covered">    pop.__noPromise = true;</span>
-<span class="cstat-no" title="statement not covered">    _this.model.populate(doc, pop, <span class="fstat-no" title="function not covered">function(err, doc) {</span></span>
-<span class="cstat-no" title="statement not covered">      if (err) {</span>
-<span class="cstat-no" title="statement not covered">        return callback(err);</span>
+<span class="cstat-no" title="statement not covered" >    var pop = helpers.preparePopulationOptionsMQ(_this, options);</span>
+<span class="cstat-no" title="statement not covered" >    pop.__noPromise = true;</span>
+<span class="cstat-no" title="statement not covered" >    _this.model.populate(doc, pop, <span class="fstat-no" title="function not covered" >function(err, doc) {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (err) {</span>
+<span class="cstat-no" title="statement not covered" >        return callback(err);</span>
       }
 &nbsp;
-<span class="cstat-no" title="statement not covered">      if (options.lean === true) {</span>
-<span class="cstat-no" title="statement not covered">        return _completeOneLean(doc, res, opts, callback);</span>
+<span class="cstat-no" title="statement not covered" >      if (options.lean === true) {</span>
+<span class="cstat-no" title="statement not covered" >        return _completeOneLean(doc, res, opts, callback);</span>
       }
-<span class="cstat-no" title="statement not covered">      return completeOne(_this.model, doc, res, opts, fields, pop, callback);</span>
+<span class="cstat-no" title="statement not covered" >      return completeOne(_this.model, doc, res, opts, fields, pop, callback);</span>
     });
   };
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (opts.runValidators &amp;&amp; doValidate) {</span>
-<span class="cstat-no" title="statement not covered">    var _callback = <span class="fstat-no" title="function not covered">function(error) {</span></span>
-<span class="cstat-no" title="statement not covered">      if (error) {</span>
-<span class="cstat-no" title="statement not covered">        return callback(error);</span>
+<span class="cstat-no" title="statement not covered" >  if (opts.runValidators &amp;&amp; doValidate) {</span>
+<span class="cstat-no" title="statement not covered" >    var _callback = <span class="fstat-no" title="function not covered" >function(error) {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (error) {</span>
+<span class="cstat-no" title="statement not covered" >        return callback(error);</span>
       }
-<span class="cstat-no" title="statement not covered">      _this._collection.findAndModify(castedQuery, castedDoc, opts, utils.tick(<span class="fstat-no" title="function not covered">function(error, res) {</span></span>
-<span class="cstat-no" title="statement not covered">        return cb(error, res ? res.value : res, res);</span>
+<span class="cstat-no" title="statement not covered" >      _this._collection.findAndModify(castedQuery, castedDoc, opts, utils.tick(<span class="fstat-no" title="function not covered" >function(error, res) {</span></span>
+<span class="cstat-no" title="statement not covered" >        return cb(error, res ? res.value : res, res);</span>
       }));
     };
 &nbsp;
-<span class="cstat-no" title="statement not covered">    try {</span>
-<span class="cstat-no" title="statement not covered">      doValidate(_callback);</span>
+<span class="cstat-no" title="statement not covered" >    try {</span>
+<span class="cstat-no" title="statement not covered" >      doValidate(_callback);</span>
     } catch (error) {
-<span class="cstat-no" title="statement not covered">      callback(error);</span>
+<span class="cstat-no" title="statement not covered" >      callback(error);</span>
     }
   } else {
-<span class="cstat-no" title="statement not covered">    this._collection.findAndModify(castedQuery, castedDoc, opts, utils.tick(<span class="fstat-no" title="function not covered">function(error, res) {</span></span>
-<span class="cstat-no" title="statement not covered">      return cb(error, res ? res.value : res, res);</span>
+<span class="cstat-no" title="statement not covered" >    this._collection.findAndModify(castedQuery, castedDoc, opts, utils.tick(<span class="fstat-no" title="function not covered" >function(error, res) {</span></span>
+<span class="cstat-no" title="statement not covered" >      return cb(error, res ? res.value : res, res);</span>
     }));
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  return this;</span>
+<span class="cstat-no" title="statement not covered" >  return this;</span>
 };
 &nbsp;
 /*!
  * ignore
  */
 &nbsp;
-<span class="fstat-no" title="function not covered">function _completeOneLean(doc, res, opts, callback) {</span>
-<span class="cstat-no" title="statement not covered">  if (opts.rawResult) {</span>
-<span class="cstat-no" title="statement not covered">    return callback(null, res);</span>
+<span class="fstat-no" title="function not covered" >function _completeOneLean(doc, res, opts, callback) {</span>
+<span class="cstat-no" title="statement not covered" >  if (opts.rawResult) {</span>
+<span class="cstat-no" title="statement not covered" >    return callback(null, res);</span>
   }
-<span class="cstat-no" title="statement not covered">  if (opts.passRawResult) {</span>
-<span class="cstat-no" title="statement not covered">    return callback(null, doc, decorateResult(res));</span>
+<span class="cstat-no" title="statement not covered" >  if (opts.passRawResult) {</span>
+<span class="cstat-no" title="statement not covered" >    return callback(null, doc, decorateResult(res));</span>
   }
-<span class="cstat-no" title="statement not covered">  return callback(null, doc);</span>
+<span class="cstat-no" title="statement not covered" >  return callback(null, doc);</span>
 }
 &nbsp;
 /*!
@@ -9359,14 +9361,14 @@ Query.prototype._findAndModify = <span class="fstat-no" title="function not cove
  * @api private
  */
 &nbsp;
-Query.prototype._mergeUpdate = <span class="fstat-no" title="function not covered">function(doc) {</span>
-<span class="cstat-no" title="statement not covered">  if (!this._update) <span class="cstat-no" title="statement not covered">this._update = {};</span></span>
-<span class="cstat-no" title="statement not covered">  if (doc instanceof Query) {</span>
-<span class="cstat-no" title="statement not covered">    if (doc._update) {</span>
-<span class="cstat-no" title="statement not covered">      utils.mergeClone(this._update, doc._update);</span>
+Query.prototype._mergeUpdate = <span class="fstat-no" title="function not covered" >function(doc) {</span>
+<span class="cstat-no" title="statement not covered" >  if (!this._update) <span class="cstat-no" title="statement not covered" >this._update = {};</span></span>
+<span class="cstat-no" title="statement not covered" >  if (doc instanceof Query) {</span>
+<span class="cstat-no" title="statement not covered" >    if (doc._update) {</span>
+<span class="cstat-no" title="statement not covered" >      utils.mergeClone(this._update, doc._update);</span>
     }
   } else {
-<span class="cstat-no" title="statement not covered">    utils.mergeClone(this._update, doc);</span>
+<span class="cstat-no" title="statement not covered" >    utils.mergeClone(this._update, doc);</span>
   }
 };
 &nbsp;
@@ -9375,23 +9377,23 @@ Query.prototype._mergeUpdate = <span class="fstat-no" title="function not covere
  * syntax. We must convert it or sorting findAndModify will not work.
  */
 &nbsp;
-<span class="fstat-no" title="function not covered">function convertSortToArray(opts) {</span>
-<span class="cstat-no" title="statement not covered">  if (Array.isArray(opts.sort)) {</span>
-<span class="cstat-no" title="statement not covered">    return;</span>
+<span class="fstat-no" title="function not covered" >function convertSortToArray(opts) {</span>
+<span class="cstat-no" title="statement not covered" >  if (Array.isArray(opts.sort)) {</span>
+<span class="cstat-no" title="statement not covered" >    return;</span>
   }
-<span class="cstat-no" title="statement not covered">  if (!utils.isObject(opts.sort)) {</span>
-<span class="cstat-no" title="statement not covered">    return;</span>
+<span class="cstat-no" title="statement not covered" >  if (!utils.isObject(opts.sort)) {</span>
+<span class="cstat-no" title="statement not covered" >    return;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  var sort = [];</span>
+<span class="cstat-no" title="statement not covered" >  var sort = [];</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  for (var key in opts.sort) {</span>
-<span class="cstat-no" title="statement not covered">    if (utils.object.hasOwnProperty(opts.sort, key)) {</span>
-<span class="cstat-no" title="statement not covered">      sort.push([key, opts.sort[key]]);</span>
+<span class="cstat-no" title="statement not covered" >  for (var key in opts.sort) {</span>
+<span class="cstat-no" title="statement not covered" >    if (utils.object.hasOwnProperty(opts.sort, key)) {</span>
+<span class="cstat-no" title="statement not covered" >      sort.push([key, opts.sort[key]]);</span>
     }
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  opts.sort = sort;</span>
+<span class="cstat-no" title="statement not covered" >  opts.sort = sort;</span>
 }
 &nbsp;
 /*!
@@ -9401,42 +9403,42 @@ Query.prototype._mergeUpdate = <span class="fstat-no" title="function not covere
  * @see Model.update #model_Model.update
  * @api private
  */
-Query.prototype._execUpdate = <span class="fstat-no" title="function not covered">function(callback) {</span>
-<span class="cstat-no" title="statement not covered">  var schema = this.model.schema;</span>
-<span class="cstat-no" title="statement not covered">  var doValidate;</span>
-<span class="cstat-no" title="statement not covered">  var _this;</span>
+Query.prototype._execUpdate = <span class="fstat-no" title="function not covered" >function(callback) {</span>
+<span class="cstat-no" title="statement not covered" >  var schema = this.model.schema;</span>
+<span class="cstat-no" title="statement not covered" >  var doValidate;</span>
+<span class="cstat-no" title="statement not covered" >  var _this;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  var castedQuery = this._conditions;</span>
-<span class="cstat-no" title="statement not covered">  var castedDoc = this._update;</span>
-<span class="cstat-no" title="statement not covered">  var options = this.options;</span>
+<span class="cstat-no" title="statement not covered" >  var castedQuery = this._conditions;</span>
+<span class="cstat-no" title="statement not covered" >  var castedDoc = this._update;</span>
+<span class="cstat-no" title="statement not covered" >  var options = this.options;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (this._castError) {</span>
-<span class="cstat-no" title="statement not covered">    callback(this._castError);</span>
-<span class="cstat-no" title="statement not covered">    return this;</span>
+<span class="cstat-no" title="statement not covered" >  if (this._castError) {</span>
+<span class="cstat-no" title="statement not covered" >    callback(this._castError);</span>
+<span class="cstat-no" title="statement not covered" >    return this;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (this.options.runValidators) {</span>
-<span class="cstat-no" title="statement not covered">    _this = this;</span>
-<span class="cstat-no" title="statement not covered">    doValidate = updateValidators(this, schema, castedDoc, options);</span>
-<span class="cstat-no" title="statement not covered">    var _callback = <span class="fstat-no" title="function not covered">function(err) {</span></span>
-<span class="cstat-no" title="statement not covered">      if (err) {</span>
-<span class="cstat-no" title="statement not covered">        return callback(err);</span>
+<span class="cstat-no" title="statement not covered" >  if (this.options.runValidators) {</span>
+<span class="cstat-no" title="statement not covered" >    _this = this;</span>
+<span class="cstat-no" title="statement not covered" >    doValidate = updateValidators(this, schema, castedDoc, options);</span>
+<span class="cstat-no" title="statement not covered" >    var _callback = <span class="fstat-no" title="function not covered" >function(err) {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (err) {</span>
+<span class="cstat-no" title="statement not covered" >        return callback(err);</span>
       }
 &nbsp;
-<span class="cstat-no" title="statement not covered">      Query.base.update.call(_this, castedQuery, castedDoc, options, callback);</span>
+<span class="cstat-no" title="statement not covered" >      Query.base.update.call(_this, castedQuery, castedDoc, options, callback);</span>
     };
-<span class="cstat-no" title="statement not covered">    try {</span>
-<span class="cstat-no" title="statement not covered">      doValidate(_callback);</span>
+<span class="cstat-no" title="statement not covered" >    try {</span>
+<span class="cstat-no" title="statement not covered" >      doValidate(_callback);</span>
     } catch (err) {
-<span class="cstat-no" title="statement not covered">      process.nextTick(<span class="fstat-no" title="function not covered">function() {</span></span>
-<span class="cstat-no" title="statement not covered">        callback(err);</span>
+<span class="cstat-no" title="statement not covered" >      process.nextTick(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >        callback(err);</span>
       });
     }
-<span class="cstat-no" title="statement not covered">    return this;</span>
+<span class="cstat-no" title="statement not covered" >    return this;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  Query.base.update.call(this, castedQuery, castedDoc, options, callback);</span>
-<span class="cstat-no" title="statement not covered">  return this;</span>
+<span class="cstat-no" title="statement not covered" >  Query.base.update.call(this, castedQuery, castedDoc, options, callback);</span>
+<span class="cstat-no" title="statement not covered" >  return this;</span>
 };
 &nbsp;
 /*!
@@ -9446,42 +9448,42 @@ Query.prototype._execUpdate = <span class="fstat-no" title="function not covered
  * @see Model.update #model_Model.update
  * @api private
  */
-Query.prototype._updateMany = <span class="fstat-no" title="function not covered">function(callback) {</span>
-<span class="cstat-no" title="statement not covered">  var schema = this.model.schema;</span>
-<span class="cstat-no" title="statement not covered">  var doValidate;</span>
-<span class="cstat-no" title="statement not covered">  var _this;</span>
+Query.prototype._updateMany = <span class="fstat-no" title="function not covered" >function(callback) {</span>
+<span class="cstat-no" title="statement not covered" >  var schema = this.model.schema;</span>
+<span class="cstat-no" title="statement not covered" >  var doValidate;</span>
+<span class="cstat-no" title="statement not covered" >  var _this;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  var castedQuery = this._conditions;</span>
-<span class="cstat-no" title="statement not covered">  var castedDoc = this._update;</span>
-<span class="cstat-no" title="statement not covered">  var options = this.options;</span>
+<span class="cstat-no" title="statement not covered" >  var castedQuery = this._conditions;</span>
+<span class="cstat-no" title="statement not covered" >  var castedDoc = this._update;</span>
+<span class="cstat-no" title="statement not covered" >  var options = this.options;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (this._castError) {</span>
-<span class="cstat-no" title="statement not covered">    callback(this._castError);</span>
-<span class="cstat-no" title="statement not covered">    return this;</span>
+<span class="cstat-no" title="statement not covered" >  if (this._castError) {</span>
+<span class="cstat-no" title="statement not covered" >    callback(this._castError);</span>
+<span class="cstat-no" title="statement not covered" >    return this;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (this.options.runValidators) {</span>
-<span class="cstat-no" title="statement not covered">    _this = this;</span>
-<span class="cstat-no" title="statement not covered">    doValidate = updateValidators(this, schema, castedDoc, options);</span>
-<span class="cstat-no" title="statement not covered">    var _callback = <span class="fstat-no" title="function not covered">function(err) {</span></span>
-<span class="cstat-no" title="statement not covered">      if (err) {</span>
-<span class="cstat-no" title="statement not covered">        return callback(err);</span>
+<span class="cstat-no" title="statement not covered" >  if (this.options.runValidators) {</span>
+<span class="cstat-no" title="statement not covered" >    _this = this;</span>
+<span class="cstat-no" title="statement not covered" >    doValidate = updateValidators(this, schema, castedDoc, options);</span>
+<span class="cstat-no" title="statement not covered" >    var _callback = <span class="fstat-no" title="function not covered" >function(err) {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (err) {</span>
+<span class="cstat-no" title="statement not covered" >        return callback(err);</span>
       }
 &nbsp;
-<span class="cstat-no" title="statement not covered">      Query.base.updateMany.call(_this, castedQuery, castedDoc, options, callback);</span>
+<span class="cstat-no" title="statement not covered" >      Query.base.updateMany.call(_this, castedQuery, castedDoc, options, callback);</span>
     };
-<span class="cstat-no" title="statement not covered">    try {</span>
-<span class="cstat-no" title="statement not covered">      doValidate(_callback);</span>
+<span class="cstat-no" title="statement not covered" >    try {</span>
+<span class="cstat-no" title="statement not covered" >      doValidate(_callback);</span>
     } catch (err) {
-<span class="cstat-no" title="statement not covered">      process.nextTick(<span class="fstat-no" title="function not covered">function() {</span></span>
-<span class="cstat-no" title="statement not covered">        callback(err);</span>
+<span class="cstat-no" title="statement not covered" >      process.nextTick(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >        callback(err);</span>
       });
     }
-<span class="cstat-no" title="statement not covered">    return this;</span>
+<span class="cstat-no" title="statement not covered" >    return this;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  Query.base.updateMany.call(this, castedQuery, castedDoc, options, callback);</span>
-<span class="cstat-no" title="statement not covered">  return this;</span>
+<span class="cstat-no" title="statement not covered" >  Query.base.updateMany.call(this, castedQuery, castedDoc, options, callback);</span>
+<span class="cstat-no" title="statement not covered" >  return this;</span>
 };
 &nbsp;
 /*!
@@ -9491,42 +9493,42 @@ Query.prototype._updateMany = <span class="fstat-no" title="function not covered
  * @see Model.update #model_Model.update
  * @api private
  */
-Query.prototype._updateOne = <span class="fstat-no" title="function not covered">function(callback) {</span>
-<span class="cstat-no" title="statement not covered">  var schema = this.model.schema;</span>
-<span class="cstat-no" title="statement not covered">  var doValidate;</span>
-<span class="cstat-no" title="statement not covered">  var _this;</span>
+Query.prototype._updateOne = <span class="fstat-no" title="function not covered" >function(callback) {</span>
+<span class="cstat-no" title="statement not covered" >  var schema = this.model.schema;</span>
+<span class="cstat-no" title="statement not covered" >  var doValidate;</span>
+<span class="cstat-no" title="statement not covered" >  var _this;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  var castedQuery = this._conditions;</span>
-<span class="cstat-no" title="statement not covered">  var castedDoc = this._update;</span>
-<span class="cstat-no" title="statement not covered">  var options = this.options;</span>
+<span class="cstat-no" title="statement not covered" >  var castedQuery = this._conditions;</span>
+<span class="cstat-no" title="statement not covered" >  var castedDoc = this._update;</span>
+<span class="cstat-no" title="statement not covered" >  var options = this.options;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (this._castError) {</span>
-<span class="cstat-no" title="statement not covered">    callback(this._castError);</span>
-<span class="cstat-no" title="statement not covered">    return this;</span>
+<span class="cstat-no" title="statement not covered" >  if (this._castError) {</span>
+<span class="cstat-no" title="statement not covered" >    callback(this._castError);</span>
+<span class="cstat-no" title="statement not covered" >    return this;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (this.options.runValidators) {</span>
-<span class="cstat-no" title="statement not covered">    _this = this;</span>
-<span class="cstat-no" title="statement not covered">    doValidate = updateValidators(this, schema, castedDoc, options);</span>
-<span class="cstat-no" title="statement not covered">    var _callback = <span class="fstat-no" title="function not covered">function(err) {</span></span>
-<span class="cstat-no" title="statement not covered">      if (err) {</span>
-<span class="cstat-no" title="statement not covered">        return callback(err);</span>
+<span class="cstat-no" title="statement not covered" >  if (this.options.runValidators) {</span>
+<span class="cstat-no" title="statement not covered" >    _this = this;</span>
+<span class="cstat-no" title="statement not covered" >    doValidate = updateValidators(this, schema, castedDoc, options);</span>
+<span class="cstat-no" title="statement not covered" >    var _callback = <span class="fstat-no" title="function not covered" >function(err) {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (err) {</span>
+<span class="cstat-no" title="statement not covered" >        return callback(err);</span>
       }
 &nbsp;
-<span class="cstat-no" title="statement not covered">      Query.base.updateOne.call(_this, castedQuery, castedDoc, options, callback);</span>
+<span class="cstat-no" title="statement not covered" >      Query.base.updateOne.call(_this, castedQuery, castedDoc, options, callback);</span>
     };
-<span class="cstat-no" title="statement not covered">    try {</span>
-<span class="cstat-no" title="statement not covered">      doValidate(_callback);</span>
+<span class="cstat-no" title="statement not covered" >    try {</span>
+<span class="cstat-no" title="statement not covered" >      doValidate(_callback);</span>
     } catch (err) {
-<span class="cstat-no" title="statement not covered">      process.nextTick(<span class="fstat-no" title="function not covered">function() {</span></span>
-<span class="cstat-no" title="statement not covered">        callback(err);</span>
+<span class="cstat-no" title="statement not covered" >      process.nextTick(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >        callback(err);</span>
       });
     }
-<span class="cstat-no" title="statement not covered">    return this;</span>
+<span class="cstat-no" title="statement not covered" >    return this;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  Query.base.updateOne.call(this, castedQuery, castedDoc, options, callback);</span>
-<span class="cstat-no" title="statement not covered">  return this;</span>
+<span class="cstat-no" title="statement not covered" >  Query.base.updateOne.call(this, castedQuery, castedDoc, options, callback);</span>
+<span class="cstat-no" title="statement not covered" >  return this;</span>
 };
 &nbsp;
 /*!
@@ -9536,42 +9538,42 @@ Query.prototype._updateOne = <span class="fstat-no" title="function not covered"
  * @see Model.replaceOne #model_Model.replaceOne
  * @api private
  */
-Query.prototype._replaceOne = <span class="fstat-no" title="function not covered">function(callback) {</span>
-<span class="cstat-no" title="statement not covered">  var schema = this.model.schema;</span>
-<span class="cstat-no" title="statement not covered">  var doValidate;</span>
-<span class="cstat-no" title="statement not covered">  var _this;</span>
+Query.prototype._replaceOne = <span class="fstat-no" title="function not covered" >function(callback) {</span>
+<span class="cstat-no" title="statement not covered" >  var schema = this.model.schema;</span>
+<span class="cstat-no" title="statement not covered" >  var doValidate;</span>
+<span class="cstat-no" title="statement not covered" >  var _this;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  var castedQuery = this._conditions;</span>
-<span class="cstat-no" title="statement not covered">  var castedDoc = this._update;</span>
-<span class="cstat-no" title="statement not covered">  var options = this.options;</span>
+<span class="cstat-no" title="statement not covered" >  var castedQuery = this._conditions;</span>
+<span class="cstat-no" title="statement not covered" >  var castedDoc = this._update;</span>
+<span class="cstat-no" title="statement not covered" >  var options = this.options;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (this._castError) {</span>
-<span class="cstat-no" title="statement not covered">    callback(this._castError);</span>
-<span class="cstat-no" title="statement not covered">    return this;</span>
+<span class="cstat-no" title="statement not covered" >  if (this._castError) {</span>
+<span class="cstat-no" title="statement not covered" >    callback(this._castError);</span>
+<span class="cstat-no" title="statement not covered" >    return this;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (this.options.runValidators) {</span>
-<span class="cstat-no" title="statement not covered">    _this = this;</span>
-<span class="cstat-no" title="statement not covered">    doValidate = updateValidators(this, schema, castedDoc, options);</span>
-<span class="cstat-no" title="statement not covered">    var _callback = <span class="fstat-no" title="function not covered">function(err) {</span></span>
-<span class="cstat-no" title="statement not covered">      if (err) {</span>
-<span class="cstat-no" title="statement not covered">        return callback(err);</span>
+<span class="cstat-no" title="statement not covered" >  if (this.options.runValidators) {</span>
+<span class="cstat-no" title="statement not covered" >    _this = this;</span>
+<span class="cstat-no" title="statement not covered" >    doValidate = updateValidators(this, schema, castedDoc, options);</span>
+<span class="cstat-no" title="statement not covered" >    var _callback = <span class="fstat-no" title="function not covered" >function(err) {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (err) {</span>
+<span class="cstat-no" title="statement not covered" >        return callback(err);</span>
       }
 &nbsp;
-<span class="cstat-no" title="statement not covered">      Query.base.updateMany.call(_this, castedQuery, castedDoc, options, callback);</span>
+<span class="cstat-no" title="statement not covered" >      Query.base.updateMany.call(_this, castedQuery, castedDoc, options, callback);</span>
     };
-<span class="cstat-no" title="statement not covered">    try {</span>
-<span class="cstat-no" title="statement not covered">      doValidate(_callback);</span>
+<span class="cstat-no" title="statement not covered" >    try {</span>
+<span class="cstat-no" title="statement not covered" >      doValidate(_callback);</span>
     } catch (err) {
-<span class="cstat-no" title="statement not covered">      process.nextTick(<span class="fstat-no" title="function not covered">function() {</span></span>
-<span class="cstat-no" title="statement not covered">        callback(err);</span>
+<span class="cstat-no" title="statement not covered" >      process.nextTick(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >        callback(err);</span>
       });
     }
-<span class="cstat-no" title="statement not covered">    return this;</span>
+<span class="cstat-no" title="statement not covered" >    return this;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  Query.base.replaceOne.call(this, castedQuery, castedDoc, options, callback);</span>
-<span class="cstat-no" title="statement not covered">  return this;</span>
+<span class="cstat-no" title="statement not covered" >  Query.base.replaceOne.call(this, castedQuery, castedDoc, options, callback);</span>
+<span class="cstat-no" title="statement not covered" >  return this;</span>
 };
 &nbsp;
 /**
@@ -9661,32 +9663,32 @@ Query.prototype._replaceOne = <span class="fstat-no" title="function not covered
  * @api public
  */
 &nbsp;
-Query.prototype.update = <span class="fstat-no" title="function not covered">function(conditions, doc, options, callback) {</span>
-<span class="cstat-no" title="statement not covered">  if (typeof options === 'function') {</span>
+Query.prototype.update = <span class="fstat-no" title="function not covered" >function(conditions, doc, options, callback) {</span>
+<span class="cstat-no" title="statement not covered" >  if (typeof options === 'function') {</span>
     // .update(conditions, doc, callback)
-<span class="cstat-no" title="statement not covered">    callback = options;</span>
-<span class="cstat-no" title="statement not covered">    options = null;</span>
-  } else <span class="cstat-no" title="statement not covered">if (typeof doc === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >    callback = options;</span>
+<span class="cstat-no" title="statement not covered" >    options = null;</span>
+  } else <span class="cstat-no" title="statement not covered" >if (typeof doc === 'function') {</span>
     // .update(doc, callback);
-<span class="cstat-no" title="statement not covered">    callback = doc;</span>
-<span class="cstat-no" title="statement not covered">    doc = conditions;</span>
-<span class="cstat-no" title="statement not covered">    conditions = {};</span>
-<span class="cstat-no" title="statement not covered">    options = null;</span>
-  } else <span class="cstat-no" title="statement not covered">if (typeof conditions === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >    callback = doc;</span>
+<span class="cstat-no" title="statement not covered" >    doc = conditions;</span>
+<span class="cstat-no" title="statement not covered" >    conditions = {};</span>
+<span class="cstat-no" title="statement not covered" >    options = null;</span>
+  } else <span class="cstat-no" title="statement not covered" >if (typeof conditions === 'function') {</span>
     // .update(callback)
-<span class="cstat-no" title="statement not covered">    callback = conditions;</span>
-<span class="cstat-no" title="statement not covered">    conditions = undefined;</span>
-<span class="cstat-no" title="statement not covered">    doc = undefined;</span>
-<span class="cstat-no" title="statement not covered">    options = undefined;</span>
-  } else <span class="cstat-no" title="statement not covered">if (typeof conditions === 'object' &amp;&amp; !doc &amp;&amp; !options &amp;&amp; !callback) {</span>
+<span class="cstat-no" title="statement not covered" >    callback = conditions;</span>
+<span class="cstat-no" title="statement not covered" >    conditions = undefined;</span>
+<span class="cstat-no" title="statement not covered" >    doc = undefined;</span>
+<span class="cstat-no" title="statement not covered" >    options = undefined;</span>
+  } else <span class="cstat-no" title="statement not covered" >if (typeof conditions === 'object' &amp;&amp; !doc &amp;&amp; !options &amp;&amp; !callback) {</span>
     // .update(doc)
-<span class="cstat-no" title="statement not covered">    doc = conditions;</span>
-<span class="cstat-no" title="statement not covered">    conditions = undefined;</span>
-<span class="cstat-no" title="statement not covered">    options = undefined;</span>
-<span class="cstat-no" title="statement not covered">    callback = undefined;</span>
+<span class="cstat-no" title="statement not covered" >    doc = conditions;</span>
+<span class="cstat-no" title="statement not covered" >    conditions = undefined;</span>
+<span class="cstat-no" title="statement not covered" >    options = undefined;</span>
+<span class="cstat-no" title="statement not covered" >    callback = undefined;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  return _update(this, 'update', conditions, doc, options, callback);</span>
+<span class="cstat-no" title="statement not covered" >  return _update(this, 'update', conditions, doc, options, callback);</span>
 };
 &nbsp;
 /**
@@ -9709,32 +9711,32 @@ Query.prototype.update = <span class="fstat-no" title="function not covered">fun
  * @api public
  */
 &nbsp;
-Query.prototype.updateMany = <span class="fstat-no" title="function not covered">function(conditions, doc, options, callback) {</span>
-<span class="cstat-no" title="statement not covered">  if (typeof options === 'function') {</span>
+Query.prototype.updateMany = <span class="fstat-no" title="function not covered" >function(conditions, doc, options, callback) {</span>
+<span class="cstat-no" title="statement not covered" >  if (typeof options === 'function') {</span>
     // .update(conditions, doc, callback)
-<span class="cstat-no" title="statement not covered">    callback = options;</span>
-<span class="cstat-no" title="statement not covered">    options = null;</span>
-  } else <span class="cstat-no" title="statement not covered">if (typeof doc === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >    callback = options;</span>
+<span class="cstat-no" title="statement not covered" >    options = null;</span>
+  } else <span class="cstat-no" title="statement not covered" >if (typeof doc === 'function') {</span>
     // .update(doc, callback);
-<span class="cstat-no" title="statement not covered">    callback = doc;</span>
-<span class="cstat-no" title="statement not covered">    doc = conditions;</span>
-<span class="cstat-no" title="statement not covered">    conditions = {};</span>
-<span class="cstat-no" title="statement not covered">    options = null;</span>
-  } else <span class="cstat-no" title="statement not covered">if (typeof conditions === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >    callback = doc;</span>
+<span class="cstat-no" title="statement not covered" >    doc = conditions;</span>
+<span class="cstat-no" title="statement not covered" >    conditions = {};</span>
+<span class="cstat-no" title="statement not covered" >    options = null;</span>
+  } else <span class="cstat-no" title="statement not covered" >if (typeof conditions === 'function') {</span>
     // .update(callback)
-<span class="cstat-no" title="statement not covered">    callback = conditions;</span>
-<span class="cstat-no" title="statement not covered">    conditions = undefined;</span>
-<span class="cstat-no" title="statement not covered">    doc = undefined;</span>
-<span class="cstat-no" title="statement not covered">    options = undefined;</span>
-  } else <span class="cstat-no" title="statement not covered">if (typeof conditions === 'object' &amp;&amp; !doc &amp;&amp; !options &amp;&amp; !callback) {</span>
+<span class="cstat-no" title="statement not covered" >    callback = conditions;</span>
+<span class="cstat-no" title="statement not covered" >    conditions = undefined;</span>
+<span class="cstat-no" title="statement not covered" >    doc = undefined;</span>
+<span class="cstat-no" title="statement not covered" >    options = undefined;</span>
+  } else <span class="cstat-no" title="statement not covered" >if (typeof conditions === 'object' &amp;&amp; !doc &amp;&amp; !options &amp;&amp; !callback) {</span>
     // .update(doc)
-<span class="cstat-no" title="statement not covered">    doc = conditions;</span>
-<span class="cstat-no" title="statement not covered">    conditions = undefined;</span>
-<span class="cstat-no" title="statement not covered">    options = undefined;</span>
-<span class="cstat-no" title="statement not covered">    callback = undefined;</span>
+<span class="cstat-no" title="statement not covered" >    doc = conditions;</span>
+<span class="cstat-no" title="statement not covered" >    conditions = undefined;</span>
+<span class="cstat-no" title="statement not covered" >    options = undefined;</span>
+<span class="cstat-no" title="statement not covered" >    callback = undefined;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  return _update(this, 'updateMany', conditions, doc, options, callback);</span>
+<span class="cstat-no" title="statement not covered" >  return _update(this, 'updateMany', conditions, doc, options, callback);</span>
 };
 &nbsp;
 /**
@@ -9756,32 +9758,32 @@ Query.prototype.updateMany = <span class="fstat-no" title="function not covered"
  * @api public
  */
 &nbsp;
-Query.prototype.updateOne = <span class="fstat-no" title="function not covered">function(conditions, doc, options, callback) {</span>
-<span class="cstat-no" title="statement not covered">  if (typeof options === 'function') {</span>
+Query.prototype.updateOne = <span class="fstat-no" title="function not covered" >function(conditions, doc, options, callback) {</span>
+<span class="cstat-no" title="statement not covered" >  if (typeof options === 'function') {</span>
     // .update(conditions, doc, callback)
-<span class="cstat-no" title="statement not covered">    callback = options;</span>
-<span class="cstat-no" title="statement not covered">    options = null;</span>
-  } else <span class="cstat-no" title="statement not covered">if (typeof doc === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >    callback = options;</span>
+<span class="cstat-no" title="statement not covered" >    options = null;</span>
+  } else <span class="cstat-no" title="statement not covered" >if (typeof doc === 'function') {</span>
     // .update(doc, callback);
-<span class="cstat-no" title="statement not covered">    callback = doc;</span>
-<span class="cstat-no" title="statement not covered">    doc = conditions;</span>
-<span class="cstat-no" title="statement not covered">    conditions = {};</span>
-<span class="cstat-no" title="statement not covered">    options = null;</span>
-  } else <span class="cstat-no" title="statement not covered">if (typeof conditions === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >    callback = doc;</span>
+<span class="cstat-no" title="statement not covered" >    doc = conditions;</span>
+<span class="cstat-no" title="statement not covered" >    conditions = {};</span>
+<span class="cstat-no" title="statement not covered" >    options = null;</span>
+  } else <span class="cstat-no" title="statement not covered" >if (typeof conditions === 'function') {</span>
     // .update(callback)
-<span class="cstat-no" title="statement not covered">    callback = conditions;</span>
-<span class="cstat-no" title="statement not covered">    conditions = undefined;</span>
-<span class="cstat-no" title="statement not covered">    doc = undefined;</span>
-<span class="cstat-no" title="statement not covered">    options = undefined;</span>
-  } else <span class="cstat-no" title="statement not covered">if (typeof conditions === 'object' &amp;&amp; !doc &amp;&amp; !options &amp;&amp; !callback) {</span>
+<span class="cstat-no" title="statement not covered" >    callback = conditions;</span>
+<span class="cstat-no" title="statement not covered" >    conditions = undefined;</span>
+<span class="cstat-no" title="statement not covered" >    doc = undefined;</span>
+<span class="cstat-no" title="statement not covered" >    options = undefined;</span>
+  } else <span class="cstat-no" title="statement not covered" >if (typeof conditions === 'object' &amp;&amp; !doc &amp;&amp; !options &amp;&amp; !callback) {</span>
     // .update(doc)
-<span class="cstat-no" title="statement not covered">    doc = conditions;</span>
-<span class="cstat-no" title="statement not covered">    conditions = undefined;</span>
-<span class="cstat-no" title="statement not covered">    options = undefined;</span>
-<span class="cstat-no" title="statement not covered">    callback = undefined;</span>
+<span class="cstat-no" title="statement not covered" >    doc = conditions;</span>
+<span class="cstat-no" title="statement not covered" >    conditions = undefined;</span>
+<span class="cstat-no" title="statement not covered" >    options = undefined;</span>
+<span class="cstat-no" title="statement not covered" >    callback = undefined;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  return _update(this, 'updateOne', conditions, doc, options, callback);</span>
+<span class="cstat-no" title="statement not covered" >  return _update(this, 'updateOne', conditions, doc, options, callback);</span>
 };
 &nbsp;
 /**
@@ -9803,59 +9805,59 @@ Query.prototype.updateOne = <span class="fstat-no" title="function not covered">
  * @api public
  */
 &nbsp;
-Query.prototype.replaceOne = <span class="fstat-no" title="function not covered">function(conditions, doc, options, callback) {</span>
-<span class="cstat-no" title="statement not covered">  if (typeof options === 'function') {</span>
+Query.prototype.replaceOne = <span class="fstat-no" title="function not covered" >function(conditions, doc, options, callback) {</span>
+<span class="cstat-no" title="statement not covered" >  if (typeof options === 'function') {</span>
     // .update(conditions, doc, callback)
-<span class="cstat-no" title="statement not covered">    callback = options;</span>
-<span class="cstat-no" title="statement not covered">    options = null;</span>
-  } else <span class="cstat-no" title="statement not covered">if (typeof doc === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >    callback = options;</span>
+<span class="cstat-no" title="statement not covered" >    options = null;</span>
+  } else <span class="cstat-no" title="statement not covered" >if (typeof doc === 'function') {</span>
     // .update(doc, callback);
-<span class="cstat-no" title="statement not covered">    callback = doc;</span>
-<span class="cstat-no" title="statement not covered">    doc = conditions;</span>
-<span class="cstat-no" title="statement not covered">    conditions = {};</span>
-<span class="cstat-no" title="statement not covered">    options = null;</span>
-  } else <span class="cstat-no" title="statement not covered">if (typeof conditions === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >    callback = doc;</span>
+<span class="cstat-no" title="statement not covered" >    doc = conditions;</span>
+<span class="cstat-no" title="statement not covered" >    conditions = {};</span>
+<span class="cstat-no" title="statement not covered" >    options = null;</span>
+  } else <span class="cstat-no" title="statement not covered" >if (typeof conditions === 'function') {</span>
     // .update(callback)
-<span class="cstat-no" title="statement not covered">    callback = conditions;</span>
-<span class="cstat-no" title="statement not covered">    conditions = undefined;</span>
-<span class="cstat-no" title="statement not covered">    doc = undefined;</span>
-<span class="cstat-no" title="statement not covered">    options = undefined;</span>
-  } else <span class="cstat-no" title="statement not covered">if (typeof conditions === 'object' &amp;&amp; !doc &amp;&amp; !options &amp;&amp; !callback) {</span>
+<span class="cstat-no" title="statement not covered" >    callback = conditions;</span>
+<span class="cstat-no" title="statement not covered" >    conditions = undefined;</span>
+<span class="cstat-no" title="statement not covered" >    doc = undefined;</span>
+<span class="cstat-no" title="statement not covered" >    options = undefined;</span>
+  } else <span class="cstat-no" title="statement not covered" >if (typeof conditions === 'object' &amp;&amp; !doc &amp;&amp; !options &amp;&amp; !callback) {</span>
     // .update(doc)
-<span class="cstat-no" title="statement not covered">    doc = conditions;</span>
-<span class="cstat-no" title="statement not covered">    conditions = undefined;</span>
-<span class="cstat-no" title="statement not covered">    options = undefined;</span>
-<span class="cstat-no" title="statement not covered">    callback = undefined;</span>
+<span class="cstat-no" title="statement not covered" >    doc = conditions;</span>
+<span class="cstat-no" title="statement not covered" >    conditions = undefined;</span>
+<span class="cstat-no" title="statement not covered" >    options = undefined;</span>
+<span class="cstat-no" title="statement not covered" >    callback = undefined;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  this.setOptions({ overwrite: true });</span>
-<span class="cstat-no" title="statement not covered">  return _update(this, 'replaceOne', conditions, doc, options, callback);</span>
+<span class="cstat-no" title="statement not covered" >  this.setOptions({ overwrite: true });</span>
+<span class="cstat-no" title="statement not covered" >  return _update(this, 'replaceOne', conditions, doc, options, callback);</span>
 };
 &nbsp;
 /*!
  * Internal helper for update, updateMany, updateOne, replaceOne
  */
 &nbsp;
-<span class="fstat-no" title="function not covered">function _update(query, op, conditions, doc, options, callback) {</span>
+<span class="fstat-no" title="function not covered" >function _update(query, op, conditions, doc, options, callback) {</span>
   // make sure we don't send in the whole Document to merge()
-<span class="cstat-no" title="statement not covered">  query.op = op;</span>
-<span class="cstat-no" title="statement not covered">  conditions = utils.toObject(conditions);</span>
+<span class="cstat-no" title="statement not covered" >  query.op = op;</span>
+<span class="cstat-no" title="statement not covered" >  conditions = utils.toObject(conditions);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  var oldCb = callback;</span>
-<span class="cstat-no" title="statement not covered">  if (oldCb) {</span>
-<span class="cstat-no" title="statement not covered">    if (typeof oldCb === 'function') {</span>
-<span class="cstat-no" title="statement not covered">      callback = <span class="fstat-no" title="function not covered">function(error, result) {</span></span>
-<span class="cstat-no" title="statement not covered">        oldCb(error, result ? result.result : {ok: 0, n: 0, nModified: 0});</span>
+<span class="cstat-no" title="statement not covered" >  var oldCb = callback;</span>
+<span class="cstat-no" title="statement not covered" >  if (oldCb) {</span>
+<span class="cstat-no" title="statement not covered" >    if (typeof oldCb === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >      callback = <span class="fstat-no" title="function not covered" >function(error, result) {</span></span>
+<span class="cstat-no" title="statement not covered" >        oldCb(error, result ? result.result : {ok: 0, n: 0, nModified: 0});</span>
       };
     } else {
-<span class="cstat-no" title="statement not covered">      throw new Error('Invalid callback() argument.');</span>
+<span class="cstat-no" title="statement not covered" >      throw new Error('Invalid callback() argument.');</span>
     }
   }
 &nbsp;
   // strict is an option used in the update checking, make sure it gets set
-<span class="cstat-no" title="statement not covered">  if (options) {</span>
-<span class="cstat-no" title="statement not covered">    if ('strict' in options) {</span>
-<span class="cstat-no" title="statement not covered">      query._mongooseOptions.strict = options.strict;</span>
+<span class="cstat-no" title="statement not covered" >  if (options) {</span>
+<span class="cstat-no" title="statement not covered" >    if ('strict' in options) {</span>
+<span class="cstat-no" title="statement not covered" >      query._mongooseOptions.strict = options.strict;</span>
     }
   }
 &nbsp;
@@ -9864,70 +9866,70 @@ Query.prototype.replaceOne = <span class="fstat-no" title="function not covered"
   // order to validate
   // This could also be somebody calling update() or update({}). Probably not a
   // common use case, check for _update to make sure we don't do anything bad
-<span class="cstat-no" title="statement not covered">  if (!doc &amp;&amp; query._update) {</span>
-<span class="cstat-no" title="statement not covered">    doc = query._updateForExec();</span>
+<span class="cstat-no" title="statement not covered" >  if (!doc &amp;&amp; query._update) {</span>
+<span class="cstat-no" title="statement not covered" >    doc = query._updateForExec();</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (mquery.canMerge(conditions)) {</span>
-<span class="cstat-no" title="statement not covered">    query.merge(conditions);</span>
+<span class="cstat-no" title="statement not covered" >  if (mquery.canMerge(conditions)) {</span>
+<span class="cstat-no" title="statement not covered" >    query.merge(conditions);</span>
   }
 &nbsp;
   // validate the selector part of the query
-<span class="cstat-no" title="statement not covered">  var castedQuery = castQuery(query);</span>
-<span class="cstat-no" title="statement not covered">  if (castedQuery instanceof Error) {</span>
-<span class="cstat-no" title="statement not covered">    query._castError = castedQuery;</span>
-<span class="cstat-no" title="statement not covered">    if (callback) {</span>
-<span class="cstat-no" title="statement not covered">      callback(castedQuery);</span>
-<span class="cstat-no" title="statement not covered">      return query;</span>
-    } else <span class="cstat-no" title="statement not covered">if (!options || !options.dontThrowCastError) {</span>
-<span class="cstat-no" title="statement not covered">      throw castedQuery;</span>
+<span class="cstat-no" title="statement not covered" >  var castedQuery = castQuery(query);</span>
+<span class="cstat-no" title="statement not covered" >  if (castedQuery instanceof Error) {</span>
+<span class="cstat-no" title="statement not covered" >    query._castError = castedQuery;</span>
+<span class="cstat-no" title="statement not covered" >    if (callback) {</span>
+<span class="cstat-no" title="statement not covered" >      callback(castedQuery);</span>
+<span class="cstat-no" title="statement not covered" >      return query;</span>
+    } else <span class="cstat-no" title="statement not covered" >if (!options || !options.dontThrowCastError) {</span>
+<span class="cstat-no" title="statement not covered" >      throw castedQuery;</span>
     }
   }
 &nbsp;
   // validate the update part of the query
-<span class="cstat-no" title="statement not covered">  var castedDoc;</span>
-<span class="cstat-no" title="statement not covered">  try {</span>
-<span class="cstat-no" title="statement not covered">    var $options = {retainKeyOrder: true};</span>
-<span class="cstat-no" title="statement not covered">    if (options &amp;&amp; options.minimize) {</span>
-<span class="cstat-no" title="statement not covered">      $options.minimize = true;</span>
+<span class="cstat-no" title="statement not covered" >  var castedDoc;</span>
+<span class="cstat-no" title="statement not covered" >  try {</span>
+<span class="cstat-no" title="statement not covered" >    var $options = {retainKeyOrder: true};</span>
+<span class="cstat-no" title="statement not covered" >    if (options &amp;&amp; options.minimize) {</span>
+<span class="cstat-no" title="statement not covered" >      $options.minimize = true;</span>
     }
-<span class="cstat-no" title="statement not covered">    castedDoc = query._castUpdate(utils.clone(doc, $options),</span>
+<span class="cstat-no" title="statement not covered" >    castedDoc = query._castUpdate(utils.clone(doc, $options),</span>
       (options &amp;&amp; options.overwrite) || op === 'replaceOne');
   } catch (err) {
-<span class="cstat-no" title="statement not covered">    query._castError = castedQuery;</span>
-<span class="cstat-no" title="statement not covered">    if (callback) {</span>
-<span class="cstat-no" title="statement not covered">      callback(err);</span>
-<span class="cstat-no" title="statement not covered">      return query;</span>
-    } else <span class="cstat-no" title="statement not covered">if (!options || !options.dontThrowCastError) {</span>
-<span class="cstat-no" title="statement not covered">      throw err;</span>
+<span class="cstat-no" title="statement not covered" >    query._castError = castedQuery;</span>
+<span class="cstat-no" title="statement not covered" >    if (callback) {</span>
+<span class="cstat-no" title="statement not covered" >      callback(err);</span>
+<span class="cstat-no" title="statement not covered" >      return query;</span>
+    } else <span class="cstat-no" title="statement not covered" >if (!options || !options.dontThrowCastError) {</span>
+<span class="cstat-no" title="statement not covered" >      throw err;</span>
     }
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  castedDoc = setDefaultsOnInsert(query, query.schema, castedDoc, options);</span>
-<span class="cstat-no" title="statement not covered">  if (!castedDoc) {</span>
+<span class="cstat-no" title="statement not covered" >  castedDoc = setDefaultsOnInsert(query, query.schema, castedDoc, options);</span>
+<span class="cstat-no" title="statement not covered" >  if (!castedDoc) {</span>
     // Make sure promises know that this is still an update, see gh-2796
-<span class="cstat-no" title="statement not covered">    query.op = op;</span>
-<span class="cstat-no" title="statement not covered">    callback &amp;&amp; callback(null);</span>
-<span class="cstat-no" title="statement not covered">    return query;</span>
+<span class="cstat-no" title="statement not covered" >    query.op = op;</span>
+<span class="cstat-no" title="statement not covered" >    callback &amp;&amp; callback(null);</span>
+<span class="cstat-no" title="statement not covered" >    return query;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (utils.isObject(options)) {</span>
-<span class="cstat-no" title="statement not covered">    query.setOptions(options);</span>
+<span class="cstat-no" title="statement not covered" >  if (utils.isObject(options)) {</span>
+<span class="cstat-no" title="statement not covered" >    query.setOptions(options);</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (!query._update) {</span>
-<span class="cstat-no" title="statement not covered">    query._update = castedDoc;</span>
+<span class="cstat-no" title="statement not covered" >  if (!query._update) {</span>
+<span class="cstat-no" title="statement not covered" >    query._update = castedDoc;</span>
   }
 &nbsp;
   // Hooks
-<span class="cstat-no" title="statement not covered">  if (callback) {</span>
-<span class="cstat-no" title="statement not covered">    if (op === 'update') {</span>
-<span class="cstat-no" title="statement not covered">      return query._execUpdate(callback);</span>
+<span class="cstat-no" title="statement not covered" >  if (callback) {</span>
+<span class="cstat-no" title="statement not covered" >    if (op === 'update') {</span>
+<span class="cstat-no" title="statement not covered" >      return query._execUpdate(callback);</span>
     }
-<span class="cstat-no" title="statement not covered">    return query['_' + op](callback);</span>
+<span class="cstat-no" title="statement not covered" >    return query['_' + op](callback);</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  return Query.base[op].call(query, castedQuery, castedDoc, options, callback);</span>
+<span class="cstat-no" title="statement not covered" >  return Query.base[op].call(query, castedQuery, castedDoc, options, callback);</span>
 }
 &nbsp;
 /**
@@ -9947,53 +9949,53 @@ Query.prototype.replaceOne = <span class="fstat-no" title="function not covered"
  * @api public
  */
 &nbsp;
-Query.prototype.exec = <span class="fstat-no" title="function not covered">function exec(op, callback) {</span>
-<span class="cstat-no" title="statement not covered">  var Promise = PromiseProvider.get();</span>
-<span class="cstat-no" title="statement not covered">  var _this = this;</span>
+Query.prototype.exec = <span class="fstat-no" title="function not covered" >function exec(op, callback) {</span>
+<span class="cstat-no" title="statement not covered" >  var Promise = PromiseProvider.get();</span>
+<span class="cstat-no" title="statement not covered" >  var _this = this;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (typeof op === 'function') {</span>
-<span class="cstat-no" title="statement not covered">    callback = op;</span>
-<span class="cstat-no" title="statement not covered">    op = null;</span>
-  } else <span class="cstat-no" title="statement not covered">if (typeof op === 'string') {</span>
-<span class="cstat-no" title="statement not covered">    this.op = op;</span>
+<span class="cstat-no" title="statement not covered" >  if (typeof op === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >    callback = op;</span>
+<span class="cstat-no" title="statement not covered" >    op = null;</span>
+  } else <span class="cstat-no" title="statement not covered" >if (typeof op === 'string') {</span>
+<span class="cstat-no" title="statement not covered" >    this.op = op;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  var _results;</span>
-<span class="cstat-no" title="statement not covered">  var promise = new Promise.ES6(<span class="fstat-no" title="function not covered">function(resolve, reject) {</span></span>
-<span class="cstat-no" title="statement not covered">    if (!_this.op) {</span>
-<span class="cstat-no" title="statement not covered">      resolve();</span>
-<span class="cstat-no" title="statement not covered">      return;</span>
+<span class="cstat-no" title="statement not covered" >  var _results;</span>
+<span class="cstat-no" title="statement not covered" >  var promise = new Promise.ES6(<span class="fstat-no" title="function not covered" >function(resolve, reject) {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (!_this.op) {</span>
+<span class="cstat-no" title="statement not covered" >      resolve();</span>
+<span class="cstat-no" title="statement not covered" >      return;</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    _this[_this.op].call(_this, <span class="fstat-no" title="function not covered">function(error, res) {</span></span>
-<span class="cstat-no" title="statement not covered">      if (error) {</span>
-<span class="cstat-no" title="statement not covered">        reject(error);</span>
-<span class="cstat-no" title="statement not covered">        return;</span>
+<span class="cstat-no" title="statement not covered" >    _this[_this.op].call(_this, <span class="fstat-no" title="function not covered" >function(error, res) {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (error) {</span>
+<span class="cstat-no" title="statement not covered" >        reject(error);</span>
+<span class="cstat-no" title="statement not covered" >        return;</span>
       }
-<span class="cstat-no" title="statement not covered">      _results = arguments;</span>
-<span class="cstat-no" title="statement not covered">      resolve(res);</span>
+<span class="cstat-no" title="statement not covered" >      _results = arguments;</span>
+<span class="cstat-no" title="statement not covered" >      resolve(res);</span>
     });
   });
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (callback) {</span>
-<span class="cstat-no" title="statement not covered">    promise.then(</span>
-<span class="fstat-no" title="function not covered">      function() {</span>
-<span class="cstat-no" title="statement not covered">        callback.apply(null, _results);</span>
-<span class="cstat-no" title="statement not covered">        return null;</span>
+<span class="cstat-no" title="statement not covered" >  if (callback) {</span>
+<span class="cstat-no" title="statement not covered" >    promise.then(</span>
+<span class="fstat-no" title="function not covered" >      function() {</span>
+<span class="cstat-no" title="statement not covered" >        callback.apply(null, _results);</span>
+<span class="cstat-no" title="statement not covered" >        return null;</span>
       },
-<span class="fstat-no" title="function not covered">      function(error) {</span>
-<span class="cstat-no" title="statement not covered">        callback(error);</span>
+<span class="fstat-no" title="function not covered" >      function(error) {</span>
+<span class="cstat-no" title="statement not covered" >        callback(error);</span>
       }).
-      catch(<span class="fstat-no" title="function not covered">function(error) {</span>
+      catch(<span class="fstat-no" title="function not covered" >function(error) {</span>
         // If we made it here, we must have an error in the callback re:
         // gh-4500, so we need to emit.
-<span class="cstat-no" title="statement not covered">        setImmediate(<span class="fstat-no" title="function not covered">function() {</span></span>
-<span class="cstat-no" title="statement not covered">          _this.model.emit('error', error);</span>
+<span class="cstat-no" title="statement not covered" >        setImmediate(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >          _this.model.emit('error', error);</span>
         });
       });
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  return promise;</span>
+<span class="cstat-no" title="statement not covered" >  return promise;</span>
 };
 &nbsp;
 /**
@@ -10006,8 +10008,8 @@ Query.prototype.exec = <span class="fstat-no" title="function not covered">funct
  * @api public
  */
 &nbsp;
-Query.prototype.then = <span class="fstat-no" title="function not covered">function(resolve, reject) {</span>
-<span class="cstat-no" title="statement not covered">  return this.exec().then(resolve, reject);</span>
+Query.prototype.then = <span class="fstat-no" title="function not covered" >function(resolve, reject) {</span>
+<span class="cstat-no" title="statement not covered" >  return this.exec().then(resolve, reject);</span>
 };
 &nbsp;
 /**
@@ -10020,8 +10022,8 @@ Query.prototype.then = <span class="fstat-no" title="function not covered">funct
  * @api public
  */
 &nbsp;
-Query.prototype.catch = <span class="fstat-no" title="function not covered">function(reject) {</span>
-<span class="cstat-no" title="statement not covered">  return this.exec().then(null, reject);</span>
+Query.prototype.catch = <span class="fstat-no" title="function not covered" >function(reject) {</span>
+<span class="cstat-no" title="statement not covered" >  return this.exec().then(null, reject);</span>
 };
 &nbsp;
 /*!
@@ -10032,16 +10034,16 @@ Query.prototype.catch = <span class="fstat-no" title="function not covered">func
  * @api private
  */
 &nbsp;
-Query.prototype._castUpdate = <span class="fstat-no" title="function not covered">function _castUpdate(obj, overwrite) {</span>
-<span class="cstat-no" title="statement not covered">  var strict;</span>
-<span class="cstat-no" title="statement not covered">  if ('strict' in this._mongooseOptions) {</span>
-<span class="cstat-no" title="statement not covered">    strict = this._mongooseOptions.strict;</span>
-  } else <span class="cstat-no" title="statement not covered">if (this.schema &amp;&amp; this.schema.options) {</span>
-<span class="cstat-no" title="statement not covered">    strict = this.schema.options.strict;</span>
+Query.prototype._castUpdate = <span class="fstat-no" title="function not covered" >function _castUpdate(obj, overwrite) {</span>
+<span class="cstat-no" title="statement not covered" >  var strict;</span>
+<span class="cstat-no" title="statement not covered" >  if ('strict' in this._mongooseOptions) {</span>
+<span class="cstat-no" title="statement not covered" >    strict = this._mongooseOptions.strict;</span>
+  } else <span class="cstat-no" title="statement not covered" >if (this.schema &amp;&amp; this.schema.options) {</span>
+<span class="cstat-no" title="statement not covered" >    strict = this.schema.options.strict;</span>
   } else {
-<span class="cstat-no" title="statement not covered">    strict = true;</span>
+<span class="cstat-no" title="statement not covered" >    strict = true;</span>
   }
-<span class="cstat-no" title="statement not covered">  return castUpdate(this.schema, obj, {</span>
+<span class="cstat-no" title="statement not covered" >  return castUpdate(this.schema, obj, {</span>
     overwrite: overwrite,
     strict: strict
   });
@@ -10052,11 +10054,11 @@ Query.prototype._castUpdate = <span class="fstat-no" title="function not covered
  * @api private
  */
 &nbsp;
-<span class="fstat-no" title="function not covered">function castQuery(query) {</span>
-<span class="cstat-no" title="statement not covered">  try {</span>
-<span class="cstat-no" title="statement not covered">    return query.cast(query.model);</span>
+<span class="fstat-no" title="function not covered" >function castQuery(query) {</span>
+<span class="cstat-no" title="statement not covered" >  try {</span>
+<span class="cstat-no" title="statement not covered" >    return query.cast(query.model);</span>
   } catch (err) {
-<span class="cstat-no" title="statement not covered">    return err;</span>
+<span class="cstat-no" title="statement not covered" >    return err;</span>
   }
 }
 &nbsp;
@@ -10065,11 +10067,11 @@ Query.prototype._castUpdate = <span class="fstat-no" title="function not covered
  * @api private
  */
 &nbsp;
-<span class="fstat-no" title="function not covered">function castDoc(query, overwrite) {</span>
-<span class="cstat-no" title="statement not covered">  try {</span>
-<span class="cstat-no" title="statement not covered">    return query._castUpdate(query._update, overwrite);</span>
+<span class="fstat-no" title="function not covered" >function castDoc(query, overwrite) {</span>
+<span class="cstat-no" title="statement not covered" >  try {</span>
+<span class="cstat-no" title="statement not covered" >    return query._castUpdate(query._update, overwrite);</span>
   } catch (err) {
-<span class="cstat-no" title="statement not covered">    return err;</span>
+<span class="cstat-no" title="statement not covered" >    return err;</span>
   }
 }
 &nbsp;
@@ -10110,29 +10112,29 @@ Query.prototype._castUpdate = <span class="fstat-no" title="function not covered
  * @api public
  */
 &nbsp;
-Query.prototype.populate = <span class="fstat-no" title="function not covered">function() {</span>
-<span class="cstat-no" title="statement not covered">  if (arguments.length === 0) {</span>
-<span class="cstat-no" title="statement not covered">    return this;</span>
+Query.prototype.populate = <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >  if (arguments.length === 0) {</span>
+<span class="cstat-no" title="statement not covered" >    return this;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  var res = utils.populate.apply(null, arguments);</span>
-<span class="cstat-no" title="statement not covered">  var opts = this._mongooseOptions;</span>
+<span class="cstat-no" title="statement not covered" >  var res = utils.populate.apply(null, arguments);</span>
+<span class="cstat-no" title="statement not covered" >  var opts = this._mongooseOptions;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (!utils.isObject(opts.populate)) {</span>
-<span class="cstat-no" title="statement not covered">    opts.populate = {};</span>
+<span class="cstat-no" title="statement not covered" >  if (!utils.isObject(opts.populate)) {</span>
+<span class="cstat-no" title="statement not covered" >    opts.populate = {};</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  var pop = opts.populate;</span>
+<span class="cstat-no" title="statement not covered" >  var pop = opts.populate;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  for (var i = 0; i &lt; res.length; ++i) {</span>
-<span class="cstat-no" title="statement not covered">    var path = res[i].path;</span>
-<span class="cstat-no" title="statement not covered">    if (pop[path] &amp;&amp; pop[path].populate &amp;&amp; res[i].populate) {</span>
-<span class="cstat-no" title="statement not covered">      res[i].populate = pop[path].populate.concat(res[i].populate);</span>
+<span class="cstat-no" title="statement not covered" >  for (var i = 0; i &lt; res.length; ++i) {</span>
+<span class="cstat-no" title="statement not covered" >    var path = res[i].path;</span>
+<span class="cstat-no" title="statement not covered" >    if (pop[path] &amp;&amp; pop[path].populate &amp;&amp; res[i].populate) {</span>
+<span class="cstat-no" title="statement not covered" >      res[i].populate = pop[path].populate.concat(res[i].populate);</span>
     }
-<span class="cstat-no" title="statement not covered">    pop[res[i].path] = res[i];</span>
+<span class="cstat-no" title="statement not covered" >    pop[res[i].path] = res[i];</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  return this;</span>
+<span class="cstat-no" title="statement not covered" >  return this;</span>
 };
 &nbsp;
 /**
@@ -10148,21 +10150,21 @@ Query.prototype.populate = <span class="fstat-no" title="function not covered">f
  * @api public
  */
 &nbsp;
-Query.prototype.cast = <span class="fstat-no" title="function not covered">function(model, obj) {</span>
-<span class="cstat-no" title="statement not covered">  obj || (obj = this._conditions);</span>
+Query.prototype.cast = <span class="fstat-no" title="function not covered" >function(model, obj) {</span>
+<span class="cstat-no" title="statement not covered" >  obj || (obj = this._conditions);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  try {</span>
-<span class="cstat-no" title="statement not covered">    return cast(model.schema, obj, {</span>
+<span class="cstat-no" title="statement not covered" >  try {</span>
+<span class="cstat-no" title="statement not covered" >    return cast(model.schema, obj, {</span>
       upsert: this.options &amp;&amp; this.options.upsert,
       strict: (this.options &amp;&amp; this.options.strict) ||
         (model.schema.options &amp;&amp; model.schema.options.strict)
     });
   } catch (err) {
     // CastError, assign model
-<span class="cstat-no" title="statement not covered">    if (typeof err.setModel === 'function') {</span>
-<span class="cstat-no" title="statement not covered">      err.setModel(model);</span>
+<span class="cstat-no" title="statement not covered" >    if (typeof err.setModel === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >      err.setModel(model);</span>
     }
-<span class="cstat-no" title="statement not covered">    throw err;</span>
+<span class="cstat-no" title="statement not covered" >    throw err;</span>
   }
 };
 &nbsp;
@@ -10177,47 +10179,47 @@ Query.prototype.cast = <span class="fstat-no" title="function not covered">funct
  * @api private
  */
 &nbsp;
-Query.prototype._castFields = <span class="fstat-no" title="function not covered">function _castFields(fields) {</span>
-<span class="cstat-no" title="statement not covered">  var selected,</span>
+Query.prototype._castFields = <span class="fstat-no" title="function not covered" >function _castFields(fields) {</span>
+<span class="cstat-no" title="statement not covered" >  var selected,</span>
       elemMatchKeys,
       keys,
       key,
       out,
       i;
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (fields) {</span>
-<span class="cstat-no" title="statement not covered">    keys = Object.keys(fields);</span>
-<span class="cstat-no" title="statement not covered">    elemMatchKeys = [];</span>
-<span class="cstat-no" title="statement not covered">    i = keys.length;</span>
+<span class="cstat-no" title="statement not covered" >  if (fields) {</span>
+<span class="cstat-no" title="statement not covered" >    keys = Object.keys(fields);</span>
+<span class="cstat-no" title="statement not covered" >    elemMatchKeys = [];</span>
+<span class="cstat-no" title="statement not covered" >    i = keys.length;</span>
 &nbsp;
     // collect $elemMatch args
-<span class="cstat-no" title="statement not covered">    while (i--) {</span>
-<span class="cstat-no" title="statement not covered">      key = keys[i];</span>
-<span class="cstat-no" title="statement not covered">      if (fields[key].$elemMatch) {</span>
-<span class="cstat-no" title="statement not covered">        selected || (selected = {});</span>
-<span class="cstat-no" title="statement not covered">        selected[key] = fields[key];</span>
-<span class="cstat-no" title="statement not covered">        elemMatchKeys.push(key);</span>
+<span class="cstat-no" title="statement not covered" >    while (i--) {</span>
+<span class="cstat-no" title="statement not covered" >      key = keys[i];</span>
+<span class="cstat-no" title="statement not covered" >      if (fields[key].$elemMatch) {</span>
+<span class="cstat-no" title="statement not covered" >        selected || (selected = {});</span>
+<span class="cstat-no" title="statement not covered" >        selected[key] = fields[key];</span>
+<span class="cstat-no" title="statement not covered" >        elemMatchKeys.push(key);</span>
       }
     }
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (selected) {</span>
+<span class="cstat-no" title="statement not covered" >  if (selected) {</span>
     // they passed $elemMatch, cast em
-<span class="cstat-no" title="statement not covered">    try {</span>
-<span class="cstat-no" title="statement not covered">      out = this.cast(this.model, selected);</span>
+<span class="cstat-no" title="statement not covered" >    try {</span>
+<span class="cstat-no" title="statement not covered" >      out = this.cast(this.model, selected);</span>
     } catch (err) {
-<span class="cstat-no" title="statement not covered">      return err;</span>
+<span class="cstat-no" title="statement not covered" >      return err;</span>
     }
 &nbsp;
     // apply the casted field args
-<span class="cstat-no" title="statement not covered">    i = elemMatchKeys.length;</span>
-<span class="cstat-no" title="statement not covered">    while (i--) {</span>
-<span class="cstat-no" title="statement not covered">      key = elemMatchKeys[i];</span>
-<span class="cstat-no" title="statement not covered">      fields[key] = out[key];</span>
+<span class="cstat-no" title="statement not covered" >    i = elemMatchKeys.length;</span>
+<span class="cstat-no" title="statement not covered" >    while (i--) {</span>
+<span class="cstat-no" title="statement not covered" >      key = elemMatchKeys[i];</span>
+<span class="cstat-no" title="statement not covered" >      fields[key] = out[key];</span>
     }
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  return fields;</span>
+<span class="cstat-no" title="statement not covered" >  return fields;</span>
 };
 &nbsp;
 /**
@@ -10225,9 +10227,9 @@ Query.prototype._castFields = <span class="fstat-no" title="function not covered
  * @api private
  */
 &nbsp;
-Query.prototype._applyPaths = <span class="fstat-no" title="function not covered">function applyPaths() {</span>
-<span class="cstat-no" title="statement not covered">  this._fields = this._fields || {};</span>
-<span class="cstat-no" title="statement not covered">  helpers.applyPaths(this._fields, this.model.schema);</span>
+Query.prototype._applyPaths = <span class="fstat-no" title="function not covered" >function applyPaths() {</span>
+<span class="cstat-no" title="statement not covered" >  this._fields = this._fields || {};</span>
+<span class="cstat-no" title="statement not covered" >  helpers.applyPaths(this._fields, this.model.schema);</span>
 };
 &nbsp;
 /**
@@ -10265,10 +10267,10 @@ Query.prototype._applyPaths = <span class="fstat-no" title="function not covered
  * @api public
  */
 &nbsp;
-Query.prototype.stream = <span class="fstat-no" title="function not covered">function stream(opts) {</span>
-<span class="cstat-no" title="statement not covered">  this._applyPaths();</span>
-<span class="cstat-no" title="statement not covered">  this._fields = this._castFields(this._fields);</span>
-<span class="cstat-no" title="statement not covered">  return new QueryStream(this, opts);</span>
+Query.prototype.stream = <span class="fstat-no" title="function not covered" >function stream(opts) {</span>
+<span class="cstat-no" title="statement not covered" >  this._applyPaths();</span>
+<span class="cstat-no" title="statement not covered" >  this._fields = this._castFields(this._fields);</span>
+<span class="cstat-no" title="statement not covered" >  return new QueryStream(this, opts);</span>
 };
 Query.prototype.stream = util.deprecate(Query.prototype.stream, 'Mongoose: ' +
   'Query.prototype.stream() is deprecated in mongoose &gt;= 4.5.0, ' +
@@ -10317,21 +10319,21 @@ Query.prototype.stream = util.deprecate(Query.prototype.stream, 'Mongoose: ' +
  * @api public
  */
 &nbsp;
-Query.prototype.cursor = <span class="fstat-no" title="function not covered">function cursor(opts) {</span>
-<span class="cstat-no" title="statement not covered">  this._applyPaths();</span>
-<span class="cstat-no" title="statement not covered">  this._fields = this._castFields(this._fields);</span>
-<span class="cstat-no" title="statement not covered">  this.setOptions({ fields: this._fieldsForExec() });</span>
-<span class="cstat-no" title="statement not covered">  if (opts) {</span>
-<span class="cstat-no" title="statement not covered">    this.setOptions(opts);</span>
+Query.prototype.cursor = <span class="fstat-no" title="function not covered" >function cursor(opts) {</span>
+<span class="cstat-no" title="statement not covered" >  this._applyPaths();</span>
+<span class="cstat-no" title="statement not covered" >  this._fields = this._castFields(this._fields);</span>
+<span class="cstat-no" title="statement not covered" >  this.setOptions({ fields: this._fieldsForExec() });</span>
+<span class="cstat-no" title="statement not covered" >  if (opts) {</span>
+<span class="cstat-no" title="statement not covered" >    this.setOptions(opts);</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  try {</span>
-<span class="cstat-no" title="statement not covered">    this.cast(this.model);</span>
+<span class="cstat-no" title="statement not covered" >  try {</span>
+<span class="cstat-no" title="statement not covered" >    this.cast(this.model);</span>
   } catch (err) {
-<span class="cstat-no" title="statement not covered">    return (new QueryCursor(this, this.options))._markError(err);</span>
+<span class="cstat-no" title="statement not covered" >    return (new QueryCursor(this, this.options))._markError(err);</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  return new QueryCursor(this, this.options);</span>
+<span class="cstat-no" title="statement not covered" >  return new QueryCursor(this, this.options);</span>
 };
 &nbsp;
 // the rest of these are basically to support older Mongoose syntax with mquery
@@ -10368,30 +10370,30 @@ Query.prototype.maxscan = Query.base.maxScan;
  * @api public
  */
 &nbsp;
-Query.prototype.tailable = <span class="fstat-no" title="function not covered">function(val, opts) {</span>
+Query.prototype.tailable = <span class="fstat-no" title="function not covered" >function(val, opts) {</span>
   // we need to support the tailable({ awaitdata : true }) as well as the
   // tailable(true, {awaitdata :true}) syntax that mquery does not support
-<span class="cstat-no" title="statement not covered">  if (val &amp;&amp; val.constructor.name === 'Object') {</span>
-<span class="cstat-no" title="statement not covered">    opts = val;</span>
-<span class="cstat-no" title="statement not covered">    val = true;</span>
+<span class="cstat-no" title="statement not covered" >  if (val &amp;&amp; val.constructor.name === 'Object') {</span>
+<span class="cstat-no" title="statement not covered" >    opts = val;</span>
+<span class="cstat-no" title="statement not covered" >    val = true;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (val === undefined) {</span>
-<span class="cstat-no" title="statement not covered">    val = true;</span>
+<span class="cstat-no" title="statement not covered" >  if (val === undefined) {</span>
+<span class="cstat-no" title="statement not covered" >    val = true;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (opts &amp;&amp; typeof opts === 'object') {</span>
-<span class="cstat-no" title="statement not covered">    for (var key in opts) {</span>
-<span class="cstat-no" title="statement not covered">      if (key === 'awaitdata') {</span>
+<span class="cstat-no" title="statement not covered" >  if (opts &amp;&amp; typeof opts === 'object') {</span>
+<span class="cstat-no" title="statement not covered" >    for (var key in opts) {</span>
+<span class="cstat-no" title="statement not covered" >      if (key === 'awaitdata') {</span>
         // For backwards compatibility
-<span class="cstat-no" title="statement not covered">        this.options[key] = !!opts[key];</span>
+<span class="cstat-no" title="statement not covered" >        this.options[key] = !!opts[key];</span>
       } else {
-<span class="cstat-no" title="statement not covered">        this.options[key] = opts[key];</span>
+<span class="cstat-no" title="statement not covered" >        this.options[key] = opts[key];</span>
       }
     }
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  return Query.base.tailable.call(this, val);</span>
+<span class="cstat-no" title="statement not covered" >  return Query.base.tailable.call(this, val);</span>
 };
 &nbsp;
 /**
@@ -10499,54 +10501,54 @@ Query.prototype.tailable = <span class="fstat-no" title="function not covered">f
  * In addition to all of the normal forms supported by mquery
  */
 &nbsp;
-Query.prototype.near = <span class="fstat-no" title="function not covered">function() {</span>
-<span class="cstat-no" title="statement not covered">  var params = [];</span>
-<span class="cstat-no" title="statement not covered">  var sphere = this._mongooseOptions.nearSphere;</span>
+Query.prototype.near = <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >  var params = [];</span>
+<span class="cstat-no" title="statement not covered" >  var sphere = this._mongooseOptions.nearSphere;</span>
 &nbsp;
   // TODO refactor
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (arguments.length === 1) {</span>
-<span class="cstat-no" title="statement not covered">    if (Array.isArray(arguments[0])) {</span>
-<span class="cstat-no" title="statement not covered">      params.push({center: arguments[0], spherical: sphere});</span>
-    } else <span class="cstat-no" title="statement not covered">if (typeof arguments[0] === 'string') {</span>
+<span class="cstat-no" title="statement not covered" >  if (arguments.length === 1) {</span>
+<span class="cstat-no" title="statement not covered" >    if (Array.isArray(arguments[0])) {</span>
+<span class="cstat-no" title="statement not covered" >      params.push({center: arguments[0], spherical: sphere});</span>
+    } else <span class="cstat-no" title="statement not covered" >if (typeof arguments[0] === 'string') {</span>
       // just passing a path
-<span class="cstat-no" title="statement not covered">      params.push(arguments[0]);</span>
-    } else <span class="cstat-no" title="statement not covered">if (utils.isObject(arguments[0])) {</span>
-<span class="cstat-no" title="statement not covered">      if (typeof arguments[0].spherical !== 'boolean') {</span>
-<span class="cstat-no" title="statement not covered">        arguments[0].spherical = sphere;</span>
+<span class="cstat-no" title="statement not covered" >      params.push(arguments[0]);</span>
+    } else <span class="cstat-no" title="statement not covered" >if (utils.isObject(arguments[0])) {</span>
+<span class="cstat-no" title="statement not covered" >      if (typeof arguments[0].spherical !== 'boolean') {</span>
+<span class="cstat-no" title="statement not covered" >        arguments[0].spherical = sphere;</span>
       }
-<span class="cstat-no" title="statement not covered">      params.push(arguments[0]);</span>
+<span class="cstat-no" title="statement not covered" >      params.push(arguments[0]);</span>
     } else {
-<span class="cstat-no" title="statement not covered">      throw new TypeError('invalid argument');</span>
+<span class="cstat-no" title="statement not covered" >      throw new TypeError('invalid argument');</span>
     }
-  } else <span class="cstat-no" title="statement not covered">if (arguments.length === 2) {</span>
-<span class="cstat-no" title="statement not covered">    if (typeof arguments[0] === 'number' &amp;&amp; typeof arguments[1] === 'number') {</span>
-<span class="cstat-no" title="statement not covered">      params.push({center: [arguments[0], arguments[1]], spherical: sphere});</span>
-    } else <span class="cstat-no" title="statement not covered">if (typeof arguments[0] === 'string' &amp;&amp; Array.isArray(arguments[1])) {</span>
-<span class="cstat-no" title="statement not covered">      params.push(arguments[0]);</span>
-<span class="cstat-no" title="statement not covered">      params.push({center: arguments[1], spherical: sphere});</span>
-    } else <span class="cstat-no" title="statement not covered">if (typeof arguments[0] === 'string' &amp;&amp; utils.isObject(arguments[1])) {</span>
-<span class="cstat-no" title="statement not covered">      params.push(arguments[0]);</span>
-<span class="cstat-no" title="statement not covered">      if (typeof arguments[1].spherical !== 'boolean') {</span>
-<span class="cstat-no" title="statement not covered">        arguments[1].spherical = sphere;</span>
+  } else <span class="cstat-no" title="statement not covered" >if (arguments.length === 2) {</span>
+<span class="cstat-no" title="statement not covered" >    if (typeof arguments[0] === 'number' &amp;&amp; typeof arguments[1] === 'number') {</span>
+<span class="cstat-no" title="statement not covered" >      params.push({center: [arguments[0], arguments[1]], spherical: sphere});</span>
+    } else <span class="cstat-no" title="statement not covered" >if (typeof arguments[0] === 'string' &amp;&amp; Array.isArray(arguments[1])) {</span>
+<span class="cstat-no" title="statement not covered" >      params.push(arguments[0]);</span>
+<span class="cstat-no" title="statement not covered" >      params.push({center: arguments[1], spherical: sphere});</span>
+    } else <span class="cstat-no" title="statement not covered" >if (typeof arguments[0] === 'string' &amp;&amp; utils.isObject(arguments[1])) {</span>
+<span class="cstat-no" title="statement not covered" >      params.push(arguments[0]);</span>
+<span class="cstat-no" title="statement not covered" >      if (typeof arguments[1].spherical !== 'boolean') {</span>
+<span class="cstat-no" title="statement not covered" >        arguments[1].spherical = sphere;</span>
       }
-<span class="cstat-no" title="statement not covered">      params.push(arguments[1]);</span>
+<span class="cstat-no" title="statement not covered" >      params.push(arguments[1]);</span>
     } else {
-<span class="cstat-no" title="statement not covered">      throw new TypeError('invalid argument');</span>
+<span class="cstat-no" title="statement not covered" >      throw new TypeError('invalid argument');</span>
     }
-  } else <span class="cstat-no" title="statement not covered">if (arguments.length === 3) {</span>
-<span class="cstat-no" title="statement not covered">    if (typeof arguments[0] === 'string' &amp;&amp; typeof arguments[1] === 'number'</span>
+  } else <span class="cstat-no" title="statement not covered" >if (arguments.length === 3) {</span>
+<span class="cstat-no" title="statement not covered" >    if (typeof arguments[0] === 'string' &amp;&amp; typeof arguments[1] === 'number'</span>
         &amp;&amp; typeof arguments[2] === 'number') {
-<span class="cstat-no" title="statement not covered">      params.push(arguments[0]);</span>
-<span class="cstat-no" title="statement not covered">      params.push({center: [arguments[1], arguments[2]], spherical: sphere});</span>
+<span class="cstat-no" title="statement not covered" >      params.push(arguments[0]);</span>
+<span class="cstat-no" title="statement not covered" >      params.push({center: [arguments[1], arguments[2]], spherical: sphere});</span>
     } else {
-<span class="cstat-no" title="statement not covered">      throw new TypeError('invalid argument');</span>
+<span class="cstat-no" title="statement not covered" >      throw new TypeError('invalid argument');</span>
     }
   } else {
-<span class="cstat-no" title="statement not covered">    throw new TypeError('invalid argument');</span>
+<span class="cstat-no" title="statement not covered" >    throw new TypeError('invalid argument');</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  return Query.base.near.apply(this, params);</span>
+<span class="cstat-no" title="statement not covered" >  return Query.base.near.apply(this, params);</span>
 };
 &nbsp;
 /**
@@ -10569,10 +10571,10 @@ Query.prototype.near = <span class="fstat-no" title="function not covered">funct
  * @see $maxDistance http://docs.mongodb.org/manual/reference/operator/maxDistance/
  */
 &nbsp;
-Query.prototype.nearSphere = <span class="fstat-no" title="function not covered">function() {</span>
-<span class="cstat-no" title="statement not covered">  this._mongooseOptions.nearSphere = true;</span>
-<span class="cstat-no" title="statement not covered">  this.near.apply(this, arguments);</span>
-<span class="cstat-no" title="statement not covered">  return this;</span>
+Query.prototype.nearSphere = <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >  this._mongooseOptions.nearSphere = true;</span>
+<span class="cstat-no" title="statement not covered" >  this.near.apply(this, arguments);</span>
+<span class="cstat-no" title="statement not covered" >  return this;</span>
 };
 &nbsp;
 /**
@@ -10621,12 +10623,12 @@ Query.prototype.nearSphere = <span class="fstat-no" title="function not covered"
  * box({ ll : [x,y], ur : [x2,y2] })
  */
 &nbsp;
-Query.prototype.box = <span class="fstat-no" title="function not covered">function(ll, ur) {</span>
-<span class="cstat-no" title="statement not covered">  if (!Array.isArray(ll) &amp;&amp; utils.isObject(ll)) {</span>
-<span class="cstat-no" title="statement not covered">    ur = ll.ur;</span>
-<span class="cstat-no" title="statement not covered">    ll = ll.ll;</span>
+Query.prototype.box = <span class="fstat-no" title="function not covered" >function(ll, ur) {</span>
+<span class="cstat-no" title="statement not covered" >  if (!Array.isArray(ll) &amp;&amp; utils.isObject(ll)) {</span>
+<span class="cstat-no" title="statement not covered" >    ur = ll.ur;</span>
+<span class="cstat-no" title="statement not covered" >    ll = ll.ll;</span>
   }
-<span class="cstat-no" title="statement not covered">  return Query.base.box.call(this, ll, ur);</span>
+<span class="cstat-no" title="statement not covered" >  return Query.base.box.call(this, ll, ur);</span>
 };
 &nbsp;
 /**
@@ -10691,16 +10693,16 @@ Query.prototype.center = Query.base.circle;
  * @api public
  */
 &nbsp;
-Query.prototype.centerSphere = <span class="fstat-no" title="function not covered">function() {</span>
-<span class="cstat-no" title="statement not covered">  if (arguments[0] &amp;&amp; arguments[0].constructor.name === 'Object') {</span>
-<span class="cstat-no" title="statement not covered">    arguments[0].spherical = true;</span>
+Query.prototype.centerSphere = <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >  if (arguments[0] &amp;&amp; arguments[0].constructor.name === 'Object') {</span>
+<span class="cstat-no" title="statement not covered" >    arguments[0].spherical = true;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (arguments[1] &amp;&amp; arguments[1].constructor.name === 'Object') {</span>
-<span class="cstat-no" title="statement not covered">    arguments[1].spherical = true;</span>
+<span class="cstat-no" title="statement not covered" >  if (arguments[1] &amp;&amp; arguments[1].constructor.name === 'Object') {</span>
+<span class="cstat-no" title="statement not covered" >    arguments[1].spherical = true;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  Query.base.circle.apply(this, arguments);</span>
+<span class="cstat-no" title="statement not covered" >  Query.base.circle.apply(this, arguments);</span>
 };
 &nbsp;
 /**
@@ -10746,11 +10748,10 @@ Query.prototype.centerSphere = <span class="fstat-no" title="function not covere
 module.exports = Query;
 &nbsp;
 &nbsp;</pre></td></tr>
-</tbody></table></pre>
+</table></pre>
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Tue Apr 11 2017 03:48:56 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Sat Apr 15 2017 21:13:13 GMT+0000 (UTC)</div>
 </div>
-
-
-</body></html>
+</body>
+</html>
