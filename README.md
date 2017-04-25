@@ -1,6 +1,6 @@
 # npmtest-mongoose
 
-#### test coverage for  [mongoose (v4.9.5)](http://mongoosejs.com)  [![npm package](https://img.shields.io/npm/v/npmtest-mongoose.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-mongoose) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-mongoose.svg)](https://travis-ci.org/npmtest/node-npmtest-mongoose)
+#### basic test coverage for  [mongoose (v4.9.6)](http://mongoosejs.com)  [![npm package](https://img.shields.io/npm/v/npmtest-mongoose.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-mongoose) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-mongoose.svg)](https://travis-ci.org/npmtest/node-npmtest-mongoose)
 
 #### Mongoose MongoDB ODM
 
@@ -10,7 +10,7 @@
 |--:|:--|
 | coverage : | [![istanbul-coverage](https://npmtest.github.io/node-npmtest-mongoose/build/coverage.badge.svg)](https://npmtest.github.io/node-npmtest-mongoose/build/coverage.html/index.html)|
 | test-report : | [![test-report](https://npmtest.github.io/node-npmtest-mongoose/build/test-report.badge.svg)](https://npmtest.github.io/node-npmtest-mongoose/build/test-report.html)|
-| build-artifacts : | [![build-artifacts](https://npmtest.github.io/node-npmtest-mongoose/glyphicons_144_folder_open.png)](https://github.com/npmtest/node-npmtest-mongoose/tree/gh-pages/build)|
+| test-server-github : | [![github.com test-server](https://npmtest.github.io/node-npmtest-mongoose/GitHub-Mark-32px.png)](https://npmtest.github.io/node-npmtest-mongoose/build/app/index.html) | | build-artifacts : | [![build-artifacts](https://npmtest.github.io/node-npmtest-mongoose/glyphicons_144_folder_open.png)](https://github.com/npmtest/node-npmtest-mongoose/tree/gh-pages/build)|
 
 - [https://npmtest.github.io/node-npmtest-mongoose/build/coverage.html/index.html](https://npmtest.github.io/node-npmtest-mongoose/build/coverage.html/index.html)
 
@@ -55,8 +55,8 @@
         "async": "2.1.4",
         "bson": "~1.0.4",
         "hooks-fixed": "2.0.0",
-        "kareem": "1.2.1",
-        "mongodb": "2.2.25",
+        "kareem": "1.4.0",
+        "mongodb": "2.2.26",
         "mpath": "0.2.1",
         "mpromise": "0.5.5",
         "mquery": "2.3.0",
@@ -94,13 +94,13 @@
         "lib": "./lib/mongoose"
     },
     "dist": {
-        "shasum": "856b856700032748dd68122cb0371f8980442975",
-        "tarball": "https://registry.npmjs.org/mongoose/-/mongoose-4.9.5.tgz"
+        "shasum": "8485879893a33fe4b8c8b596950cfa9a8d597ec1",
+        "tarball": "https://registry.npmjs.org/mongoose/-/mongoose-4.9.6.tgz"
     },
     "engines": {
         "node": ">=0.6.19"
     },
-    "gitHead": "e5390b16cc9251687cbaf6f3712cf646fab3f854",
+    "gitHead": "ca446b58265eacc9a150ab2a02899ab6d6447c97",
     "homepage": "http://mongoosejs.com",
     "keywords": [
         "mongodb",
@@ -148,7 +148,8 @@
         "test": "mocha test/*.test.js test/**/*.test.js",
         "test-cov": "istanbul cover --report text --report html _mocha test/*.test.js"
     },
-    "version": "4.9.5"
+    "version": "4.9.6",
+    "bin": {}
 }
 ```
 
